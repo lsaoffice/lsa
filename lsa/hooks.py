@@ -1,7 +1,7 @@
 app_name = "lsa"
-app_title = "lsa"
-app_publisher = "mohan"
-app_description = "lsa"
+app_title = "Lsa"
+app_publisher = "Mohan"
+app_description = "Lsa"
 app_email = "mohan@360ithub.com"
 app_license = "mit"
 # required_apps = []

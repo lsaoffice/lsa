@@ -1,0 +1,349 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "creation": "2023-11-24 17:02:36.067185",
+ "default_view": "List",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "basic_information_tab",
+  "cid_no",
+  "customer_name",
+  "customer_status",
+  "column_break_iiqt",
+  "pf_status",
+  "assessee_name",
+  "pan_of_assessee",
+  "column_break_mjhd",
+  "registartion_no",
+  "assessee_type",
+  "section_break_ccxy",
+  "pf_allotment_date",
+  "filling_starting_date",
+  "it_assessee",
+  "column_break_mvvm",
+  "registratred_mob_no",
+  "registratred_email_id",
+  "gst_assessee",
+  "column_break_nklw",
+  "reg_add",
+  "executive",
+  "section_break_deyf",
+  "other_info",
+  "crediential_details_tab",
+  "user_id",
+  "security_que_1",
+  "security_que_2",
+  "column_break_fckm",
+  "trace_password",
+  "secu_ans_1",
+  "secu_ans_2",
+  "authorised_person_information_tab",
+  "name1",
+  "date_of_birth",
+  "mob_no",
+  "email_id",
+  "column_break_dcao",
+  "designation",
+  "pan_no",
+  "adhaar_no",
+  "dsc_sr_no",
+  "column_break_fkmr",
+  "address",
+  "comments_tab",
+  "notes_html",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "basic_information_tab",
+   "fieldtype": "Tab Break",
+   "label": "Basic Information"
+  },
+  {
+   "fieldname": "cid_no",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "CID No",
+   "options": "Customer",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "cid_no.customer_name",
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "label": "Customer Name",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fetch_from": "cid_no.custom_customer_status_",
+   "fieldname": "customer_status",
+   "fieldtype": "Data",
+   "label": "Customer Status",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_iiqt",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Enable",
+   "fieldname": "pf_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "PF Status",
+   "options": "\nEnable\nDisable",
+   "reqd": 1
+  },
+  {
+   "fieldname": "assessee_name",
+   "fieldtype": "Data",
+   "label": "Assessee Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "pan_of_assessee",
+   "fieldtype": "Data",
+   "label": "Pan of Assessee",
+   "length": 10,
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_mjhd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "registartion_no",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Registartion No",
+   "length": 10,
+   "reqd": 1
+  },
+  {
+   "fieldname": "assessee_type",
+   "fieldtype": "Link",
+   "label": "Assessee type",
+   "options": "Assessee Type",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_ccxy",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "pf_allotment_date",
+   "fieldtype": "Date",
+   "label": "PF Allotment date"
+  },
+  {
+   "fieldname": "filling_starting_date",
+   "fieldtype": "Date",
+   "label": "Filling Starting Date"
+  },
+  {
+   "fieldname": "it_assessee",
+   "fieldtype": "Link",
+   "label": "IT Assessee",
+   "options": "IT Assessee File"
+  },
+  {
+   "fieldname": "column_break_mvvm",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "registratred_mob_no",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Reg Mob. no.",
+   "length": 10,
+   "reqd": 1
+  },
+  {
+   "fieldname": "registratred_email_id",
+   "fieldtype": "Data",
+   "label": "Reg Email id"
+  },
+  {
+   "fieldname": "gst_assessee",
+   "fieldtype": "Link",
+   "label": "GST Assessee",
+   "options": "Gstfile"
+  },
+  {
+   "fieldname": "column_break_nklw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "reg_add",
+   "fieldtype": "Small Text",
+   "label": "Reg Add"
+  },
+  {
+   "fieldname": "executive",
+   "fieldtype": "Link",
+   "label": "Executive",
+   "options": "User",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_deyf",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "other_info",
+   "fieldtype": "Text Editor",
+   "label": "Other Info"
+  },
+  {
+   "fieldname": "crediential_details_tab",
+   "fieldtype": "Tab Break",
+   "label": "Crediential Details"
+  },
+  {
+   "fieldname": "user_id",
+   "fieldtype": "Data",
+   "label": "User id"
+  },
+  {
+   "fieldname": "security_que_1",
+   "fieldtype": "Data",
+   "label": "Security Que 1"
+  },
+  {
+   "fieldname": "security_que_2",
+   "fieldtype": "Data",
+   "label": "Security Que 2"
+  },
+  {
+   "fieldname": "column_break_fckm",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "trace_password",
+   "fieldtype": "Data",
+   "label": "Password"
+  },
+  {
+   "fieldname": "secu_ans_1",
+   "fieldtype": "Data",
+   "label": "Secu Ans 1"
+  },
+  {
+   "fieldname": "secu_ans_2",
+   "fieldtype": "Data",
+   "label": "Secu Ans 2"
+  },
+  {
+   "fieldname": "authorised_person_information_tab",
+   "fieldtype": "Tab Break",
+   "label": "Authorised Person"
+  },
+  {
+   "fieldname": "name1",
+   "fieldtype": "Data",
+   "label": "Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "date_of_birth",
+   "fieldtype": "Date",
+   "label": "Date of Birth"
+  },
+  {
+   "fieldname": "mob_no",
+   "fieldtype": "Int",
+   "label": "Mob No",
+   "length": 10
+  },
+  {
+   "fieldname": "email_id",
+   "fieldtype": "Data",
+   "label": "Email Id"
+  },
+  {
+   "fieldname": "column_break_dcao",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "designation",
+   "fieldtype": "Select",
+   "label": "Designation",
+   "options": "Director\nPartner\nManager\nAccountants\nSales Person\nStaff",
+   "reqd": 1
+  },
+  {
+   "fieldname": "pan_no",
+   "fieldtype": "Data",
+   "label": "Pan No",
+   "length": 10,
+   "reqd": 1
+  },
+  {
+   "fieldname": "adhaar_no",
+   "fieldtype": "Int",
+   "label": "Adhaar No",
+   "length": 12
+  },
+  {
+   "fetch_from": "dsc_no.dsc_no",
+   "fieldname": "dsc_sr_no",
+   "fieldtype": "Link",
+   "label": "DSC Sr No",
+   "options": "DSC Digital Sign"
+  },
+  {
+   "fieldname": "column_break_fkmr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Small Text",
+   "label": "Address"
+  },
+  {
+   "fieldname": "comments_tab",
+   "fieldtype": "Tab Break",
+   "label": "Comments"
+  },
+  {
+   "fieldname": "notes_html",
+   "fieldtype": "HTML",
+   "label": "Notes HTML"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Table",
+   "label": "Notes",
+   "no_copy": 1,
+   "options": "CRM Note"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-11-27 10:59:34.181708",
+ "modified_by": "Administrator",
+ "module": "Lsa",
+ "name": "Provident Fund File",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
