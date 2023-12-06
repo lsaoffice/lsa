@@ -410,31 +410,71 @@ def get_razorpay_payment_details(razorpay_payment_link_id,razorpay_payment_link_
 
 
 
+# import frappe
+# from frappe import _
+
+# @frappe.whitelist()
+# def create_payment_entry(final_amount,razorpay_payment_link_reference_id,customer,razorpay_payment_link_id):
+#     try:
+#         # Create a Payment Entry
+#         payment_entry = frappe.get_doc({
+#             "doctype": "Payment Entry",
+#             # "payment_type": "Receive",
+#             # "posting_date": "2023-12-02",
+#             # "company": "360ithub",  # Replace with your company name
+#             "paid_from": "Debtors - IND",
+#             "paid_to": "Cash - IND",
+#             "received_amount":"INR",
+#             "base_received_amount":"INR",
+#             "paid_amount": final_amount,
+#             "references": [
+# 		    {
+# 		      "reference_doctype": "Sales Order",
+# 		      "reference_name": razorpay_payment_link_reference_id,
+# 		      #"invoice_amount": 1200.00,
+# 		      "allocated_amount": final_amount
+# 		    }
+# 		  ],
+#             "reference_date": "2023-12-01",
+#             "account": "Accounts Receivable",
+#             "party_type": "Customer",
+#             "party": customer,
+#             "mode_of_payment": "Cash",
+#             "reference_no": razorpay_payment_link_id
+#         })
+
+#         # Save the Payment Entry
+#         payment_entry.insert(ignore_permissions=True)
+#         frappe.db.commit()
+
+#         # frappe.msgprint(_('Payment Entry created successfully for Invoice {0}').format(payment_entry.reference_name))
+
+#     except frappe.exceptions.ValidationError as e:
+#         frappe.msgprint(_('Error creating Payment Entry: {0}').format(str(e)))
+
+
+
 import frappe
 from frappe import _
 
 @frappe.whitelist()
-def create_payment_entry(final_amount,razorpay_payment_link_reference_id,customer,razorpay_payment_link_id):
+def create_payment_entry(final_amount, razorpay_payment_link_reference_id, customer, razorpay_payment_link_id):
     try:
         # Create a Payment Entry
         payment_entry = frappe.get_doc({
             "doctype": "Payment Entry",
-            # "payment_type": "Receive",
-            # "posting_date": "2023-12-02",
-            # "company": "360ithub",  # Replace with your company name
             "paid_from": "Debtors - IND",
             "paid_to": "Cash - IND",
-            "received_amount":"INR",
-            "base_received_amount":"INR",
+            "received_amount": "INR",
+            "base_received_amount": "INR",
             "paid_amount": final_amount,
             "references": [
-		    {
-		      "reference_doctype": "Sales Order",
-		      "reference_name": razorpay_payment_link_reference_id,
-		      #"invoice_amount": 1200.00,
-		      "allocated_amount": final_amount
-		    }
-		  ],
+                {
+                    "reference_doctype": "Sales Order",
+                    "reference_name": razorpay_payment_link_reference_id,
+                    "allocated_amount": final_amount
+                }
+            ],
             "reference_date": "2023-12-01",
             "account": "Accounts Receivable",
             "party_type": "Customer",
@@ -447,10 +487,23 @@ def create_payment_entry(final_amount,razorpay_payment_link_reference_id,custome
         payment_entry.insert(ignore_permissions=True)
         frappe.db.commit()
 
-        # frappe.msgprint(_('Payment Entry created successfully for Invoice {0}').format(payment_entry.reference_name))
+        # Format success message in HTML
+        success_message = """
+            Payment Entry created successfully for Invoice {0}
+            <script>
+                // Redirect to a new page with the success message
+                frappe.msgprint("Payment Entry created successfully", __("Success"));
+                setTimeout(function() {{
+                    window.location.href = '/payment_success?final_amount={0}&razorpay_payment_link_id={1}';
+                }}, 2000); // Redirect after 2 seconds (adjust the delay as needed)
+            </script>
+        """
+
+        # Show success message using frappe.msgprint
+        frappe.msgprint(success_message)
 
     except frappe.exceptions.ValidationError as e:
-        frappe.msgprint(_('Error creating Payment Entry: {0}').format(str(e)))
+            frappe.msgprint(_('Error creating Payment Entry: {0}').format(str(e)))
 
 
 
@@ -459,9 +512,52 @@ def create_payment_entry(final_amount,razorpay_payment_link_reference_id,custome
 
 
 
+# import frappe
+# from frappe import _
 
+# @frappe.whitelist()
+# def create_payment():
+#     try:
+#         # Create a Payment Entry
+#         payment_entry = frappe.get_doc({
+#             "doctype": "Payment Entry",
+#             "paid_from": "Debtors - IND",
+#             "paid_to": "Cash - IND",
+#             "received_amount": "INR",
+#             "base_received_amount": "INR",
+#             "paid_amount": 10000,
+#             "reference_date": "2023-12-01",
+#             "account": "Accounts Receivable",
+#             "party_type": "Customer",
+#             "party": 20131037,
+#             "mode_of_payment": "Cash",
+#             "reference_no": 10002
+#         })
 
+#         # Save the Payment Entry
+#         payment_entry.insert(ignore_permissions=True)
+#         frappe.db.commit()
 
+#         # Format success message in HTML
+#         success_message = """
+#             Payment Entry created successfully for Invoice {0}
+#             <script>
+#                 // Redirect to a new page with the success message
+#                 frappe.msgprint("Payment Entry created successfully", __("Success"));
+#                 setTimeout(function() {{
+#                     window.location.href = '/payment_success';
+#                 }}, 2000); // Redirect after 2 seconds (adjust the delay as needed)
+#             </script>
+#         """
 
+#         # Show success message using frappe.msgprint
+#         frappe.msgprint(success_message)
 
+#     except frappe.exceptions.ValidationError as e:
+#         # Format error message
+#         error_message = """
+#             Error creating Payment Entry: {0}
+#         """.format(str(e))
 
+#         # Show error message using frappe.msgprint
+#         frappe.msgprint(error_message)
