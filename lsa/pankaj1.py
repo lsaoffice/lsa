@@ -624,7 +624,7 @@ def create_payment_entry(final_amount, razorpay_payment_link_reference_id, custo
         """
 
         # Show success message using frappe.msgprint
-        frappe.msgprint(success_message)
+        frappe.msgprint(success_message, title="Message", raw=True)
 
     except frappe.exceptions.ValidationError as e:
             frappe.msgprint(_('Error creating Payment Entry: {0}').format(str(e)))
