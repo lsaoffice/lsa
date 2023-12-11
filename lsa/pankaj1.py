@@ -280,7 +280,7 @@ import razorpay
 
 
 @frappe.whitelist()
-def create_razorpay_payment_link_sales_order(amount, invoice_name,customer,customer_name,from_date,to_date):
+def create_razorpay_payment_link_sales_order(amount, invoice_name,customer,customer_name,from_date,to_date,actual_amount):
     # Your Razorpay API key and secret
     razorpay_api = frappe.get_doc('Razorpay Api')
 
@@ -311,7 +311,7 @@ def create_razorpay_payment_link_sales_order(amount, invoice_name,customer,custo
         # "accept_partial": False,
         # "expire_by": 1691097057,
         "reference_id": invoice_name,
-        "callback_url": f"https://online.lsaoffice.com/api/method/lsa.pankaj1.get_razorpay_payment_details?customer={customer}",
+        "callback_url": f"https://online.lsaoffice.com/api/method/lsa.pankaj1.get_razorpay_payment_details?customer={customer}&actual_amount={actual_amount}",
         "callback_method": "get"
     }
  
@@ -359,7 +359,7 @@ def create_razorpay_payment_link_sales_order(amount, invoice_name,customer,custo
 
 
 @frappe.whitelist(allow_guest=True)
-def get_razorpay_payment_details(razorpay_payment_link_id,razorpay_payment_link_reference_id,customer):
+def get_razorpay_payment_details(razorpay_payment_link_id,razorpay_payment_link_reference_id,customer,actual_amount):
     try:
         razorpay_api = frappe.get_doc('Razorpay Api')
 
@@ -393,9 +393,9 @@ def get_razorpay_payment_details(razorpay_payment_link_id,razorpay_payment_link_
                 payment_amount = most_recent_payment.get('amount')
                 # payment_status = most_recent_payment.get('status')
                 final_amount = int(float(payment_amount) / 100)
-                print(final_amount)
+                # print(final_amount)
                 # frappe.msgprint(final_amount)
-                create_payment_entry(final_amount,razorpay_payment_link_reference_id,customer,razorpay_payment_link_id)
+                create_payment_entry(final_amount,razorpay_payment_link_reference_id,customer,razorpay_payment_link_id,actual_amount)
                 return render_payment_success_page(final_amount,razorpay_payment_link_id)
                 # You can now use this information as needed, such as updating your database, notifying users, etc.
             else:
@@ -439,19 +439,20 @@ def render_payment_success_page(final_amount,razorpay_payment_link_id):
 
 
 # @frappe.whitelist(allow_guest=True)
-def create_payment_entry(final_amount, razorpay_payment_link_reference_id, customer, razorpay_payment_link_id):
+def create_payment_entry(final_amount, razorpay_payment_link_reference_id, customer, razorpay_payment_link_id, actual_amount):
     try:
-        # print("customer=",customer)
-        # print(razorpay_payment_link_reference_id)
+        # print("actual_amount=", actual_amount)
+        # print("customer=", customer)
+        # print("razorpay_payment_link_reference_id=", razorpay_payment_link_reference_id)
         # print("===========")
         # print(f"User: {frappe.session.user}")
         # print(f"User Roles: {frappe.get_roles(frappe.session.user)}")
         frappe.set_user("Administrator")
-        # print(f"User: {frappe.session.user}")
-        #Check if entry exists in database. If yes directly return (**Find Approriate Primary Key**)
-        # if is_payment_entry_exists(razorpay_payment_link_id):
-        #     frappe.msgprint(_('Payment Entry already exists. Skipping creation.'))
-        #     return
+        
+        # Check if entry exists in the database. If yes, directly return.
+        if is_payment_entry_exists(razorpay_payment_link_id):
+            frappe.msgprint(_('Payment Entry already exists. Skipping creation.'))
+            return
             
         # Create a Payment Entry
         payment_entry = frappe.get_doc({
@@ -460,12 +461,12 @@ def create_payment_entry(final_amount, razorpay_payment_link_reference_id, custo
             "paid_to": "Cash - IND",
             "received_amount": "INR",
             "base_received_amount": "INR",
-            "paid_amount": final_amount,
+            "paid_amount": int(final_amount),
             "references": [
                 {
                     "reference_doctype": "Sales Order",
                     "reference_name": razorpay_payment_link_reference_id,
-                    "allocated_amount": final_amount
+                    "allocated_amount": int(actual_amount)
                 }
             ],
             "reference_date": today(),
@@ -475,6 +476,7 @@ def create_payment_entry(final_amount, razorpay_payment_link_reference_id, custo
             "mode_of_payment": "Cash",
             "reference_no": razorpay_payment_link_id
         }, ignore_permissions=True)
+        
         # print("=============STARTED=============")
 
         # Save the Payment Entry
@@ -483,10 +485,10 @@ def create_payment_entry(final_amount, razorpay_payment_link_reference_id, custo
         # print("=============ENDED=============")
         frappe.set_user("Guest")
 
-
     except frappe.exceptions.ValidationError as e:
-            frappe.msgprint(_('Error creating Payment Entry: {0}').format(str(e)))
+        frappe.msgprint(_('Error creating Payment Entry: {0}').format(str(e)))
 
+# Rest of your code...
 
 
 def is_payment_entry_exists(reference_id):
