@@ -311,7 +311,7 @@ def create_razorpay_payment_link_sales_order(amount, invoice_name,customer,custo
         # "accept_partial": False,
         # "expire_by": 1691097057,
         "reference_id": invoice_name,
-        "callback_url": f"http://192.168.1.116:8016/api/method/lsa.pankaj1.get_razorpay_payment_details?customer={customer}",
+        "callback_url": f"https://online.lsaoffice.com/api/method/lsa.pankaj1.get_razorpay_payment_details?customer={customer}",
         "callback_method": "get"
     }
  
