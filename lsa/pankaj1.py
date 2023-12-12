@@ -458,7 +458,7 @@ def create_payment_entry(final_amount, razorpay_payment_link_reference_id, custo
         payment_entry = frappe.get_doc({
             "doctype": "Payment Entry",
             "paid_from": "Debtors - IND",
-            "paid_to": "Cash - IND",
+            "paid_to": "Razorpay - IND",
             "received_amount": "INR",
             "base_received_amount": "INR",
             "paid_amount": int(final_amount),
@@ -473,7 +473,7 @@ def create_payment_entry(final_amount, razorpay_payment_link_reference_id, custo
             "account": "Accounts Receivable",
             "party_type": "Customer",
             "party": customer,
-            "mode_of_payment": "Cash",
+            "mode_of_payment": "Razorpay",
             "reference_no": razorpay_payment_link_id
         }, ignore_permissions=True)
         
