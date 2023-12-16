@@ -1,0 +1,87 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{gst_yearly_summery_report}-{month}-{gst_type}",
+ "creation": "2023-12-14 19:04:55.415920",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_hgtw",
+  "amended_from",
+  "gst_yearly_summery_report",
+  "column_break_xoff",
+  "month",
+  "gst_type"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_hgtw",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Gst Filing Data Report",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "gst_yearly_summery_report",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "FY",
+   "options": "Gst Yearly Summery Report",
+   "reqd": 1
+  },
+  {
+   "fieldname": "month",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Month",
+   "options": "Apr\nMay\nJun\nJul\nAug\nSep\nOct\nNov\nDec\nJan\nFeb\nMar",
+   "reqd": 1
+  },
+  {
+   "fieldname": "gst_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "GST Type",
+   "options": "\nRegular\nComposition\nQRMP",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_xoff",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2023-12-15 10:59:04.801152",
+ "modified_by": "Administrator",
+ "module": "Lsa",
+ "name": "Gst Filing Data Report",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

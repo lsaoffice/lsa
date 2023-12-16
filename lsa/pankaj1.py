@@ -192,7 +192,7 @@ def fetch_sales_orders(cid):
 
 
 @frappe.whitelist(allow_guest=True)
-def aisensy_sales_order(docname, customer,from_date,to_date,total,new_mobile,razorpay_payment_link):
+def aisensy_sales_order(docname,customer_id, customer,from_date,to_date,total,new_mobile,razorpay_payment_link):
     try:
         # frappe.msgprint(from_date)
         # pass
@@ -239,6 +239,7 @@ def aisensy_sales_order(docname, customer,from_date,to_date,total,new_mobile,raz
             ],
             "media": {
                 "url": sales_order_url,
+                # "url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
                 "filename": docname
             }
         }
@@ -256,6 +257,17 @@ def aisensy_sales_order(docname, customer,from_date,to_date,total,new_mobile,raz
             # sales_invoice.save()
 
             frappe.msgprint(_("WhatsApp Message Sent successfully : {0}").format(response.text))
+            whatsapp_message_log = frappe.new_doc('WhatsApp Message Log')
+            whatsapp_message_log.sales_order = docname
+            whatsapp_message_log.customer = customer_id
+            whatsapp_message_log.sender = frappe.session.user  # Add the sender information
+            whatsapp_message_log.send_date = frappe.utils.now_datetime()
+            # whatsapp_message_log.from_date = from_date
+            # whatsapp_message_log.to_date = to_date
+            whatsapp_message_log.total_amount = total
+            whatsapp_message_log.mobile_no = new_mobile
+            whatsapp_message_log.razorpay_payment_link = razorpay_payment_link
+            whatsapp_message_log.insert(ignore_permissions=True)
         else:
             # Log the error and provide feedback to the user
             frappe.logger().error(f"Sensy API Error: {response.text}")
@@ -499,3 +511,29 @@ def is_payment_entry_exists(reference_id):
 
     return bool(existing_payment_entry)
 
+
+
+
+
+
+##################################################################
+
+# Gst monthly filling
+
+
+# from __future__ import unicode_literals
+import frappe
+
+@frappe.whitelist()
+def fetch_gstfile_records():
+    try:
+        # Fetch records from Gstfile with filter gst_type = 'regular'
+        records = frappe.get_all("Gstfile", filters={"gst_type": "regular"}, fields=["gst_number"])
+        # frappe.msgprint(records)
+        return records
+    except Exception as e:
+        frappe.log_error(frappe.get_traceback(), "Error in fetch_gstfile_records")
+        return None
+    
+
+    

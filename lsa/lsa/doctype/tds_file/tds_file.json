@@ -1,7 +1,6 @@
 {
  "actions": [],
  "allow_import": 1,
- "allow_rename": 1,
  "autoname": "field:tan_no",
  "creation": "2023-11-24 16:54:47.387767",
  "default_view": "List",
@@ -77,16 +76,14 @@
    "fieldname": "customer_name",
    "fieldtype": "Data",
    "label": "Customer Name",
-   "read_only": 1,
-   "reqd": 1
+   "read_only": 1
   },
   {
    "fetch_from": "cid_no.custom_customer_status_",
    "fieldname": "customer_status",
    "fieldtype": "Data",
    "label": "Customer Status",
-   "read_only": 1,
-   "reqd": 1
+   "read_only": 1
   },
   {
    "fieldname": "column_break_iiqt",
@@ -129,9 +126,9 @@
   },
   {
    "fieldname": "assessee_type",
-   "fieldtype": "Link",
+   "fieldtype": "Select",
    "label": "Assessee type",
-   "options": "Assessee Type",
+   "options": "COMPANY\nINDIVIDUAL\nFIRM",
    "reqd": 1
   },
   {
@@ -167,7 +164,7 @@
   },
   {
    "fieldname": "registratred_mob_no",
-   "fieldtype": "Int",
+   "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Reg Mob. no.",
    "length": 10,
@@ -197,8 +194,7 @@
    "fieldname": "executive",
    "fieldtype": "Link",
    "label": "Executive",
-   "options": "User",
-   "reqd": 1
+   "options": "User"
   },
   {
    "fieldname": "section_break_gkfb",
@@ -276,9 +272,9 @@
   },
   {
    "fieldname": "mob_no",
-   "fieldtype": "Int",
+   "fieldtype": "Data",
    "label": "Mob No",
-   "length": 10
+   "length": 13
   },
   {
    "fieldname": "email_id",
@@ -293,7 +289,7 @@
    "fieldname": "designation",
    "fieldtype": "Select",
    "label": "Designation",
-   "options": "Director\nPartner\nManager\nAccountants\nSales Person\nStaff",
+   "options": "Director\nProprietor\nPartner\nManager\nAccountants\nSales Person\nStaff",
    "reqd": 1
   },
   {
@@ -305,7 +301,7 @@
   },
   {
    "fieldname": "adhaar_no",
-   "fieldtype": "Int",
+   "fieldtype": "Data",
    "label": "Adhaar No",
    "length": 12
   },
@@ -337,7 +333,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-11-27 11:00:20.322818",
+ "modified": "2023-12-16 15:12:17.143825",
  "modified_by": "Administrator",
  "module": "Lsa",
  "name": "TDS File",
