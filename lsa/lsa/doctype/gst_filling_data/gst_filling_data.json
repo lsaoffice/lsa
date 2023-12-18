@@ -48,6 +48,7 @@
    "search_index": 1
   },
   {
+   "fetch_from": ".gst_yearly_summery_report",
    "fieldname": "gst_yearly_filling_summery_id",
    "fieldtype": "Link",
    "label": "GST Yearly Filling Summary ID",
@@ -68,7 +69,8 @@
    "fetch_from": "gstfile.customer_id",
    "fieldname": "cid",
    "fieldtype": "Data",
-   "label": "CID"
+   "label": "CID",
+   "read_only": 1
   },
   {
    "fieldname": "sales_total_taxable",
@@ -134,13 +136,15 @@
    "fieldname": "filing_status",
    "fieldtype": "Select",
    "label": "Filing Status",
-   "options": "Pending\nData Collected\nData Finalized\nTax Calculation Done\nTax Informed to Client\nGSTR-1 or IFF Prepared and Filed\nGSTR-2A/2B or 4A/4B Reco done\nTax Payment Processed\nGSTR-3B / CMP08 Prepared and Filed\nFiled Summery Shared With Client"
+   "options": "Pending\nData Collected\nData Finalized\nTax Calculation Done\nTax Informed to Client\nGSTR-1 or IFF Prepared and Filed\nGSTR-2A/2B or 4A/4B Reco done\nTax Payment Processed\nGSTR-3B / CMP08 Prepared and Filed\nFiled Summery Shared With Client",
+   "read_only": 1
   },
   {
    "fetch_from": "gstfile.gst_type",
    "fieldname": "gst_type",
    "fieldtype": "Data",
-   "label": "Gst Type"
+   "label": "Gst Type",
+   "read_only": 1
   },
   {
    "fieldname": "column_break_oret",
@@ -170,13 +174,14 @@
    "fetch_from": "gstfile.gst_executive",
    "fieldname": "gst_executive",
    "fieldtype": "Data",
-   "label": "Gst Executive"
+   "label": "Gst Executive",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-12-15 16:19:01.672238",
+ "modified": "2023-12-16 17:26:38.673600",
  "modified_by": "Administrator",
  "module": "Lsa",
  "name": "Gst Filling Data",
