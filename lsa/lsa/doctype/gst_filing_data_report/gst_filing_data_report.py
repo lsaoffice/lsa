@@ -24,8 +24,8 @@ class GstFilingDataReport(Document):
 
             # Process matching records as needed
             for record in matching_records:
-                print("Debug: Printing record before frappe.msgprint")
-                print(record)
+                # print("Debug: Printing record before frappe.msgprint")
+                # print(record)
                 gst_filling_data = frappe.new_doc("Gst Filling Data")
                 gst_filling_data.gst_yearly_filling_summery_id = record.name
                 gst_filling_data.gstfile = record.gst_file_id

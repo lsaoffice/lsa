@@ -30,8 +30,19 @@
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
- "links": [],
- "modified": "2023-12-14 17:59:05.748804",
+ "links": [
+  {
+   "group": "Gst Yearly Filing Summery",
+   "link_doctype": "Gst Yearly Filing Summery",
+   "link_fieldname": "gst_yearly_summery_report_id"
+  },
+  {
+   "group": "Gst Filling Data",
+   "link_doctype": "Gst Filling Data",
+   "link_fieldname": "fy"
+  }
+ ],
+ "modified": "2023-12-16 19:18:26.717159",
  "modified_by": "Administrator",
  "module": "Lsa",
  "name": "Gst Yearly Summery Report",
