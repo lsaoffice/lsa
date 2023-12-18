@@ -376,7 +376,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-11-28 15:37:29.364025",
+ "modified": "2023-12-10 12:20:22.321917",
  "modified_by": "Administrator",
  "module": "Lsa",
  "name": "Gstfile",
@@ -401,6 +401,5 @@
  "sort_order": "DESC",
  "states": [],
  "title_field": "company_name",
- "track_changes": 1,
- "track_views": 1
+ "track_changes": 1
 }

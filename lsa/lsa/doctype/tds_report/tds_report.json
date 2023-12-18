@@ -1,15 +1,13 @@
 {
  "actions": [],
- "allow_import": 1,
  "allow_rename": 1,
- "autoname": "field:fy",
- "creation": "2023-10-07 22:14:59.290048",
- "default_view": "List",
+ "creation": "2023-12-17 17:07:42.802545",
  "doctype": "DocType",
- "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "fy"
+  "fy",
+  "column_break_ofwx",
+  "qtr"
  ],
  "fields": [
   {
@@ -17,18 +15,28 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "FY",
-   "options": "Fiscal Year",
-   "reqd": 1,
-   "unique": 1
+   "options": "FY",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_ofwx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "qtr",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "QTR",
+   "options": "\nQ1 APR-JUN\nQ2 JUL-SEP\nQ3 OCT-DEC\nQ4 JAN-MAR",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-11-27 10:57:35.312497",
+ "modified": "2023-12-17 17:08:47.950144",
  "modified_by": "Administrator",
  "module": "Lsa",
- "name": "GST Yearly Report",
- "naming_rule": "By fieldname",
+ "name": "TDS REPORT",
  "owner": "Administrator",
  "permissions": [
   {

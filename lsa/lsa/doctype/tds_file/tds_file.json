@@ -202,7 +202,7 @@
   },
   {
    "fieldname": "other_info",
-   "fieldtype": "Text Editor",
+   "fieldtype": "Small Text",
    "label": "Other Info"
   },
   {
@@ -333,7 +333,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-12-16 15:12:17.143825",
+ "modified": "2023-12-17 16:38:28.631329",
  "modified_by": "Administrator",
  "module": "Lsa",
  "name": "TDS File",
@@ -357,5 +357,5 @@
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
- "title_field": "tan_no"
+ "title_field": "deductor_name"
 }

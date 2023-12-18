@@ -1,5 +1,4 @@
 {
- "_comments": "[{\"comment\": \"Action Failed<br><br>Value cannot be changed for <strong>Created By</strong>\", \"by\": \"mohan@360ithub.com\", \"name\": \"776b433896\"}, {\"comment\": \"Action Failed<br><br>Value cannot be changed for <strong>Created By</strong>\", \"by\": \"mohan@360ithub.com\", \"name\": \"16009d2318\"}]",
  "actions": [],
  "allow_import": 1,
  "allow_rename": 1,
@@ -19,12 +18,13 @@
   "enabled",
   "section_break_uyye",
   "assessee_first_name",
+  "assessee_middle_name",
+  "assessee_last_name",
   "assessee_name",
   "date_of_birth",
   "executive_name",
   "father",
   "column_break_vwrq",
-  "assessee_last_name",
   "registered_mob",
   "alternative_mob",
   "email_id",
@@ -34,8 +34,6 @@
   "it_password",
   "aadhaar_number",
   "assessee_type",
-  "description_section",
-  "text_editor_lesh",
   "bank_details_tab",
   "bank_name",
   "bank_branch",
@@ -103,8 +101,7 @@
    "fieldname": "assessee_first_name",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Assessee First Name",
-   "reqd": 1
+   "label": "Assessee First Name"
   },
   {
    "fieldname": "assessee_name",
@@ -117,15 +114,13 @@
    "fieldname": "date_of_birth",
    "fieldtype": "Date",
    "in_list_view": 1,
-   "label": "Date Of Birth",
-   "reqd": 1
+   "label": "Date Of Birth"
   },
   {
    "fieldname": "executive_name",
    "fieldtype": "Link",
    "label": "IT Executive Name",
-   "options": "Employee",
-   "reqd": 1
+   "options": "Employee"
   },
   {
    "fieldname": "father",
@@ -147,8 +142,7 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Registered Mob",
-   "length": 10,
-   "reqd": 1
+   "length": 10
   },
   {
    "fieldname": "alternative_mob",
@@ -161,8 +155,7 @@
    "fieldname": "email_id",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Email id",
-   "reqd": 1
+   "label": "Email id"
   },
   {
    "fieldname": "mother",
@@ -188,33 +181,21 @@
    "fieldname": "it_password",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "IT Password",
-   "reqd": 1
+   "label": "IT Password"
   },
   {
    "fieldname": "aadhaar_number",
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Aadhaar Number",
-   "length": 12,
-   "reqd": 1
+   "length": 12
   },
   {
    "fieldname": "assessee_type",
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Assessee Type",
-   "options": "INDIVIDUAL\nHUF\nCOMPANY\nFIRM\nAOP\nLOCAL AUTHORITY\nARTIFICIAL PERSON",
-   "reqd": 1
-  },
-  {
-   "fieldname": "description_section",
-   "fieldtype": "Section Break",
-   "label": "Description"
-  },
-  {
-   "fieldname": "text_editor_lesh",
-   "fieldtype": "Text Editor"
+   "options": "INDIVIDUAL\nHUF\nCOMPANY\nFIRM\nAOP\nLOCAL AUTHORITY\nARTIFICIAL PERSON"
   },
   {
    "fieldname": "bank_details_tab",
@@ -303,11 +284,17 @@
    "fieldname": "adhaar_card",
    "fieldtype": "Attach",
    "label": "Adhaar Card"
+  },
+  {
+   "fieldname": "assessee_middle_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Assessee Middle Name"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-11-27 10:59:05.465861",
+ "modified": "2023-12-10 12:19:43.918667",
  "modified_by": "Administrator",
  "module": "Lsa",
  "name": "IT Assessee File",
@@ -332,5 +319,6 @@
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
- "title_field": "assessee_name"
+ "title_field": "assessee_name",
+ "track_changes": 1
 }

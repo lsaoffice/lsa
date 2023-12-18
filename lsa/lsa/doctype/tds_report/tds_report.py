@@ -5,5 +5,5 @@
 from frappe.model.document import Document
 
 
-class GstAnnualData(Document):
+class TDSREPORT(Document):
 	pass

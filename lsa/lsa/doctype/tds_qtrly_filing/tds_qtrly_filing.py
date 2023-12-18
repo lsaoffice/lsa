@@ -5,5 +5,5 @@
 from frappe.model.document import Document
 
 
-class GSTYearlyReport(Document):
+class TDSQTRLYFILING(Document):
 	pass
