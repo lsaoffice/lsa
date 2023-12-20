@@ -12,7 +12,7 @@
   "customer_name",
   "customer_status",
   "column_break_iiqt",
-  "tds_status",
+  "enabled",
   "deductor_name",
   "pan_of_deductor",
   "column_break_mjhd",
@@ -67,6 +67,7 @@
    "fieldname": "cid_no",
    "fieldtype": "Link",
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "CID No",
    "options": "Customer",
    "reqd": 1
@@ -88,15 +89,6 @@
   {
    "fieldname": "column_break_iiqt",
    "fieldtype": "Column Break"
-  },
-  {
-   "default": "Enable",
-   "fieldname": "tds_status",
-   "fieldtype": "Select",
-   "in_list_view": 1,
-   "label": "TDS Status",
-   "options": "\nEnable\nDisable",
-   "reqd": 1
   },
   {
    "fieldname": "deductor_name",
@@ -167,7 +159,7 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Reg Mob. no.",
-   "length": 10,
+   "length": 13,
    "reqd": 1
   },
   {
@@ -329,11 +321,17 @@
    "fieldtype": "Table",
    "label": "Notes",
    "options": "CRM Note"
+  },
+  {
+   "default": "1",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enabled"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-12-17 16:38:28.631329",
+ "modified": "2023-12-20 10:03:33.194989",
  "modified_by": "Administrator",
  "module": "Lsa",
  "name": "TDS File",

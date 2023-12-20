@@ -56,7 +56,9 @@
   "vat_user_name",
   "vat_password",
   "tally_user_name",
-  "tally_password"
+  "tally_password",
+  "accounts_tab",
+  "current_charges"
  ],
  "fields": [
   {
@@ -372,11 +374,25 @@
    "fieldtype": "Data",
    "label": "Aadhar No.",
    "permlevel": 1
+  },
+  {
+   "fieldname": "accounts_tab",
+   "fieldtype": "Tab Break",
+   "label": "Accounts"
+  },
+  {
+   "default": "1",
+   "fieldname": "current_charges",
+   "fieldtype": "Currency",
+   "label": "Current Recurring Fees",
+   "non_negative": 1,
+   "precision": "2",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-12-10 12:20:22.321917",
+ "modified": "2023-12-19 10:49:10.828028",
  "modified_by": "Administrator",
  "module": "Lsa",
  "name": "Gstfile",

@@ -12,6 +12,15 @@ class GstFilingDataReport(Document):
             gst_yearly_summery_report = self.gst_yearly_summery_report
             gst_type = self.gst_type
 
+            # Check gst_type and set quarterly or monthly accordingly
+            if gst_type == "Regular" or gst_type == "QRMP":
+                filing_frequency = self.month
+            elif gst_type == "Composition":
+                filing_frequency = self.quarterly
+            else:
+                frappe.msgprint("Gst Type should be either 'Regular', 'QRMP', or 'Composition'.")
+                return
+
             # Apply filter on "Gst Yearly Filing Summery" DocType
             filter_conditions = {
                 "gst_yearly_summery_report_id": gst_yearly_summery_report,
@@ -20,20 +29,18 @@ class GstFilingDataReport(Document):
 
             # Fetch records based on filter conditions
             matching_records = frappe.get_all("Gst Yearly Filing Summery", filters=filter_conditions, fields="gst_yearly_summery_report_id,gst_file_id,gst_type,name")
-            # frappe.msgprint(matching_records)
 
             # Process matching records as needed
             for record in matching_records:
-                # print("Debug: Printing record before frappe.msgprint")
-                # print(record)
                 gst_filling_data = frappe.new_doc("Gst Filling Data")
                 gst_filling_data.gst_yearly_filling_summery_id = record.name
                 gst_filling_data.gstfile = record.gst_file_id
-                gst_filling_data.month = self.month
+                gst_filling_data.month = filing_frequency
                 gst_filling_data.gst_filling_report_id = self.name
                 gst_filling_data.gst_type = record.gst_type
 
                 gst_filling_data.insert()
+
             frappe.msgprint("New Records Created in Gst Filling Data!")
 
         except Exception as e:

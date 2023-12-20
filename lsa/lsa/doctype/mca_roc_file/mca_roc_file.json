@@ -63,6 +63,7 @@
    "fieldname": "cid_no",
    "fieldtype": "Link",
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "CID No",
    "options": "Customer",
    "reqd": 1
@@ -129,11 +130,10 @@
    "length": 8
   },
   {
-   "default": "- Private Limited (PVT. LTD.)",
    "fieldname": "company_type",
    "fieldtype": "Select",
    "label": "Company type",
-   "options": "\n- Limited Liability Partnership (LLP)\n- Private Limited (PVT. LTD.)\n- Limited (LTD.)",
+   "options": "\nLIMITED LIABILITY PARTNERSHIP\nPRIVATE LIMITED COMPANY\nLIMITED COMPANY",
    "reqd": 1
   },
   {
@@ -162,10 +162,10 @@
   },
   {
    "fieldname": "registratred_mob_no",
-   "fieldtype": "Int",
+   "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Company Reg Mob. no.",
-   "length": 10,
+   "length": 12,
    "reqd": 1
   },
   {
@@ -192,8 +192,7 @@
    "fieldname": "executive",
    "fieldtype": "Link",
    "label": "Executive",
-   "options": "User",
-   "reqd": 1
+   "options": "User"
   },
   {
    "fieldname": "section_break_toek",
@@ -234,7 +233,7 @@
   },
   {
    "fieldname": "other_info",
-   "fieldtype": "Text Editor",
+   "fieldtype": "Small Text",
    "label": "Other Info"
   },
   {
@@ -245,7 +244,7 @@
   {
    "fieldname": "table_rufo",
    "fieldtype": "Table",
-   "options": "MCA Company Director"
+   "options": "MCA Company Directors"
   },
   {
    "fieldname": "crediential_details_tab",
@@ -305,7 +304,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-11-27 10:59:19.554361",
+ "modified": "2023-12-20 10:04:34.603087",
  "modified_by": "Administrator",
  "module": "Lsa",
  "name": "MCA ROC File",

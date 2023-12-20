@@ -3,34 +3,42 @@
  "allow_rename": 1,
  "autoname": "format:{gst_filling_report_id}-{####}",
  "creation": "2023-12-14 18:03:31.414070",
+ "default_view": "Report",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "section_break_abwx",
-  "gst_filling_report_id",
-  "gst_yearly_filling_summery_id",
-  "amended_from",
+  "section_break_jiec",
+  "cid",
+  "gstfile",
+  "column_break_fdja",
+  "company_name",
+  "gst_type",
+  "section_break_mauk",
   "fy",
+  "column_break_bwdw",
+  "month",
+  "column_break_boyo",
+  "filing_status",
+  "column_break_anjv",
+  "gst_executive",
+  "section_break_abwx",
   "sales_total_taxable",
   "purchase_total_taxable",
-  "tax_paid",
-  "tax_paid_amount",
   "recorded_by",
   "column_break_oret",
-  "filing_status",
-  "month",
-  "gstfile",
-  "gst_type",
-  "cid",
-  "gst_executive",
+  "tax_paid",
+  "tax_paid_amount",
   "interest_paid_amount",
   "penalty_paid_amount",
-  "section_break_rsnh",
+  "column_break_vods",
   "itc_igst",
   "itc_cgst",
   "itc_sgst",
-  "column_break_aqmg",
-  "itc_cess"
+  "itc_cess",
+  "section_break_rsnh",
+  "gst_filling_report_id",
+  "amended_from",
+  "gst_yearly_filling_summery_id"
  ],
  "fields": [
   {
@@ -40,6 +48,7 @@
   {
    "fieldname": "amended_from",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Amended From",
    "no_copy": 1,
    "options": "Gst Filling Data",
@@ -48,29 +57,33 @@
    "search_index": 1
   },
   {
-   "fetch_from": ".gst_yearly_summery_report",
    "fieldname": "gst_yearly_filling_summery_id",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "GST Yearly Filling Summary ID",
    "options": "Gst Yearly Filing Summery"
   },
   {
    "fieldname": "month",
    "fieldtype": "Data",
-   "label": "Month"
+   "label": "Month",
+   "read_only": 1
   },
   {
    "fieldname": "gstfile",
    "fieldtype": "Link",
-   "label": "Gstfile",
-   "options": "Gstfile"
+   "label": "Company Name",
+   "options": "Gstfile",
+   "read_only": 1,
+   "reqd": 1
   },
   {
    "fetch_from": "gstfile.customer_id",
    "fieldname": "cid",
    "fieldtype": "Data",
    "label": "CID",
-   "read_only": 1
+   "read_only": 1,
+   "reqd": 1
   },
   {
    "fieldname": "sales_total_taxable",
@@ -128,8 +141,10 @@
   {
    "fieldname": "recorded_by",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Recorded By",
-   "options": "Employee"
+   "options": "Employee",
+   "read_only": 1
   },
   {
    "default": "Pending",
@@ -144,7 +159,8 @@
    "fieldname": "gst_type",
    "fieldtype": "Data",
    "label": "Gst Type",
-   "read_only": 1
+   "read_only": 1,
+   "reqd": 1
   },
   {
    "fieldname": "column_break_oret",
@@ -155,33 +171,68 @@
    "fieldtype": "Section Break"
   },
   {
-   "fieldname": "column_break_aqmg",
-   "fieldtype": "Column Break"
-  },
-  {
    "fetch_from": "gst_yearly_filling_summery_id.fy",
    "fieldname": "fy",
-   "fieldtype": "Data",
-   "label": "FY"
+   "fieldtype": "Link",
+   "label": "FY",
+   "options": "Gst Yearly Summery Report"
   },
   {
    "fieldname": "gst_filling_report_id",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Gst Filling Report Id",
    "options": "Gst Filing Data Report"
   },
   {
    "fetch_from": "gstfile.gst_executive",
    "fieldname": "gst_executive",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "label": "Gst Executive",
-   "read_only": 1
+   "options": "Employee"
+  },
+  {
+   "fieldname": "column_break_bwdw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_boyo",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_jiec",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fetch_from": "gstfile.gst_number",
+   "fieldname": "company_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "GSTIN",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_fdja",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_anjv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_vods",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_mauk",
+   "fieldtype": "Section Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-12-16 17:26:38.673600",
+ "modified": "2023-12-19 09:52:52.741130",
  "modified_by": "Administrator",
  "module": "Lsa",
  "name": "Gst Filling Data",
@@ -204,5 +255,6 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "track_changes": 1
 }

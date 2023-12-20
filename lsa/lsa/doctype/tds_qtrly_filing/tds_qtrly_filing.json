@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:{tds_report}-{####}",
  "creation": "2023-12-17 16:28:36.253390",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -10,6 +11,7 @@
   "tds_file",
   "tan_number",
   "deductor_name",
+  "cid",
   "column_break_etve",
   "tds_report",
   "fy",
@@ -52,6 +54,7 @@
    "reqd": 1
   },
   {
+   "fetch_from": "tds_report.fy",
    "fieldname": "fy",
    "fieldtype": "Link",
    "label": "FY",
@@ -59,6 +62,7 @@
    "reqd": 1
   },
   {
+   "fetch_from": "tds_report.qtr",
    "fieldname": "qtr",
    "fieldtype": "Select",
    "label": "QTR",
@@ -109,15 +113,23 @@
    "label": "TDS REPORT",
    "options": "TDS REPORT",
    "reqd": 1
+  },
+  {
+   "fetch_from": "tds_file.cid_no",
+   "fieldname": "cid",
+   "fieldtype": "Link",
+   "label": "CID",
+   "options": "Customer"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-12-17 17:09:30.156802",
+ "modified": "2023-12-19 14:37:27.572678",
  "modified_by": "Administrator",
  "module": "Lsa",
  "name": "TDS QTRLY FILING",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

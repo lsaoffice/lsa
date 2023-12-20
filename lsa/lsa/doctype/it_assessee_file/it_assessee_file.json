@@ -51,12 +51,17 @@
   "bank_passbook__cancel_cheque",
   "column_break_almu",
   "pan_card",
-  "adhaar_card"
+  "adhaar_card",
+  "accounts_tab",
+  "service_item",
+  "column_break_nexw",
+  "current_recurring_fees"
  ],
  "fields": [
   {
    "fieldname": "customer",
    "fieldtype": "Link",
+   "in_standard_filter": 1,
    "label": "Customer",
    "options": "Customer",
    "reqd": 1
@@ -195,7 +200,7 @@
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Assessee Type",
-   "options": "INDIVIDUAL\nHUF\nCOMPANY\nFIRM\nAOP\nLOCAL AUTHORITY\nARTIFICIAL PERSON"
+   "options": "\nINDIVIDUAL\nHINDU UNDIVIDED FAMILY\nCOMPANY\nFIRM\nASSOCIATION OF PERSONS\nBODY OF INDIVIDUALS\nLOCAL AUTHORITY\nARTIFICIAL JUDICIAL PERSON"
   },
   {
    "fieldname": "bank_details_tab",
@@ -290,11 +295,36 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Assessee Middle Name"
+  },
+  {
+   "fieldname": "accounts_tab",
+   "fieldtype": "Tab Break",
+   "label": "Accounts"
+  },
+  {
+   "default": "1",
+   "fieldname": "current_recurring_fees",
+   "fieldtype": "Currency",
+   "label": "Current Recurring Fees",
+   "non_negative": 1,
+   "precision": "2",
+   "reqd": 1
+  },
+  {
+   "fieldname": "service_item",
+   "fieldtype": "Link",
+   "label": "Service Item",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_nexw",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-12-10 12:19:43.918667",
+ "modified": "2023-12-20 10:02:46.304922",
  "modified_by": "Administrator",
  "module": "Lsa",
  "name": "IT Assessee File",

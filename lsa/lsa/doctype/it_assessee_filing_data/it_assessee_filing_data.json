@@ -1,0 +1,123 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{ay}-{it_assessee_file}-{###}",
+ "creation": "2023-12-18 15:57:57.865804",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_hj5q",
+  "amended_from",
+  "ay",
+  "it_assessee_file",
+  "pan",
+  "assessee_full_name",
+  "filing_status",
+  "column_break_prnj",
+  "customer_id",
+  "customer_name",
+  "customer_status"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_hj5q",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "IT Assessee Filing Data",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "it_assessee_file",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "IT Assessee File",
+   "options": "IT Assessee File",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "it_assessee_file.pan",
+   "fieldname": "pan",
+   "fieldtype": "Data",
+   "label": "PAN",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "it_assessee_file.assessee_name",
+   "fieldname": "assessee_full_name",
+   "fieldtype": "Data",
+   "label": "Assessee Full Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "filing_status",
+   "fieldtype": "Select",
+   "label": "FILING STATUS",
+   "options": "PENDING INITIAL CONTACT\nDOCUMENTS REQUESTED\nDOCUMENTS PARTIALLY RECEIVED\nDOCUMENTS FULLY COLLECTED\nREVIEWED AND VERIFIED\nRETURN PREPARED\nSHARED TO CLIENT REVIEW\nFILED\nACK AND VERIFIED\nDOCS SHARED WITH CLIENT",
+   "reqd": 1
+  },
+  {
+   "fieldname": "ay",
+   "fieldtype": "Link",
+   "label": "Ay",
+   "options": "IT Assessee File Yearly Report",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fetch_from": "it_assessee_file.customer",
+   "fieldname": "customer_id",
+   "fieldtype": "Link",
+   "label": "Customer ID",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "column_break_prnj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "customer_id.custom_customer_status_",
+   "fieldname": "customer_status",
+   "fieldtype": "Data",
+   "label": "Customer Status"
+  },
+  {
+   "fetch_from": "customer_id.customer_name",
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "label": "Customer Name"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2023-12-20 12:20:03.200747",
+ "modified_by": "Administrator",
+ "module": "Lsa",
+ "name": "IT Assessee Filing Data",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

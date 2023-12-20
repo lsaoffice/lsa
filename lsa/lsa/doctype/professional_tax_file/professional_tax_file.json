@@ -12,7 +12,7 @@
   "customer_name",
   "customer_status",
   "column_break_iiqt",
-  "pt_status",
+  "enabled",
   "assessee_name",
   "pan_of_assessee",
   "column_break_mjhd",
@@ -90,15 +90,6 @@
    "fieldtype": "Column Break"
   },
   {
-   "default": "Enable",
-   "fieldname": "pt_status",
-   "fieldtype": "Select",
-   "in_list_view": 1,
-   "label": "PT Status",
-   "options": "\nEnable\nDisable",
-   "reqd": 1
-  },
-  {
    "fieldname": "assessee_name",
    "fieldtype": "Data",
    "label": "Assessee Name",
@@ -108,7 +99,7 @@
    "fieldname": "pan_of_assessee",
    "fieldtype": "Data",
    "label": "Pan of Assessee",
-   "length": 10,
+   "length": 12,
    "reqd": 1
   },
   {
@@ -125,9 +116,9 @@
   },
   {
    "fieldname": "assessee_type",
-   "fieldtype": "Link",
+   "fieldtype": "Select",
    "label": "Assessee type",
-   "options": "Assessee Type",
+   "options": "\nINDIVIDUAL\nHINDU UNDIVIDED FAMILY\nCOMPANY\nFIRM\nASSOCIATION OF PERSONS\nBODY OF INDIVIDUALS\nLOCAL AUTHORITY\nARTIFICIAL JUDICIAL PERSON",
    "reqd": 1
   },
   {
@@ -156,10 +147,10 @@
   },
   {
    "fieldname": "registratred_mob_no",
-   "fieldtype": "Int",
+   "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Reg Mob. no.",
-   "length": 10,
+   "length": 13,
    "reqd": 1
   },
   {
@@ -195,7 +186,7 @@
   },
   {
    "fieldname": "other_details",
-   "fieldtype": "Text Editor",
+   "fieldtype": "Small Text",
    "label": "Other Details"
   },
   {
@@ -255,9 +246,9 @@
   },
   {
    "fieldname": "mob_no",
-   "fieldtype": "Int",
+   "fieldtype": "Data",
    "label": "Mob No",
-   "length": 10
+   "length": 13
   },
   {
    "fieldname": "email_id",
@@ -272,19 +263,19 @@
    "fieldname": "designation",
    "fieldtype": "Select",
    "label": "Designation",
-   "options": "\nDirector\nPartner\nManager\nAccountants\nSales Person\nStaff",
+   "options": "\nProprietor\nDirector\nPartner\nManager\nAccountants\nSales Person\nStaff",
    "reqd": 1
   },
   {
    "fieldname": "pan_no",
    "fieldtype": "Data",
    "label": "Pan No",
-   "length": 10,
+   "length": 12,
    "reqd": 1
   },
   {
    "fieldname": "adhaar_no",
-   "fieldtype": "Int",
+   "fieldtype": "Data",
    "label": "Adhaar No",
    "length": 12
   },
@@ -319,11 +310,17 @@
    "fieldtype": "Table",
    "label": "Notes",
    "options": "CRM Note"
+  },
+  {
+   "default": "0",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enabled"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-11-27 11:01:02.909667",
+ "modified": "2023-12-19 17:53:56.269172",
  "modified_by": "Administrator",
  "module": "Lsa",
  "name": "Professional Tax File",

@@ -535,5 +535,33 @@ def fetch_gstfile_records():
         frappe.log_error(frappe.get_traceback(), "Error in fetch_gstfile_records")
         return None
     
+    
+##############################################################################
+
+# IT Assessess Create manual Record
+
+
+# myapp/myapp/doctype/it_assessee_file/it_assessee_file.py
+
+# from __future__ import unicode_literals
+import frappe
+
+@frappe.whitelist()
+def create_it_assessee_manual_record(yearly_report, current_form_name):
+    try:
+        # Your logic to create a new record in 'IT Assessee Filing Data'
+        filing_data_doc = frappe.new_doc('IT Assessee Filing Data')
+        filing_data_doc.ay = yearly_report
+        filing_data_doc.it_assessee_file = current_form_name
+        filing_data_doc.save()
+
+        return True  # Return True if the operation is successful
+    except Exception as e:
+        frappe.log_error(f"Error in creating IT Assessee Filing Data: {str(e)}")
+        return False  # Return False if there's an error
+    
+    
+    
+    
 
     
