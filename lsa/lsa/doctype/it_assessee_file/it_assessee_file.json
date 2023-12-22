@@ -9,7 +9,7 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "customer",
+  "customer_id",
   "column_break_tfcm",
   "customer_name",
   "column_break_howw",
@@ -53,25 +53,18 @@
   "pan_card",
   "adhaar_card",
   "accounts_tab",
-  "service_item",
+  "service_name",
+  "hsn_code",
   "column_break_nexw",
   "current_recurring_fees"
  ],
  "fields": [
   {
-   "fieldname": "customer",
-   "fieldtype": "Link",
-   "in_standard_filter": 1,
-   "label": "Customer",
-   "options": "Customer",
-   "reqd": 1
-  },
-  {
    "fieldname": "column_break_tfcm",
    "fieldtype": "Column Break"
   },
   {
-   "fetch_from": "customer.customer_name",
+   "fetch_from": "customer_id.customer_name",
    "fieldname": "customer_name",
    "fieldtype": "Data",
    "label": "Customer Name"
@@ -81,7 +74,7 @@
    "fieldtype": "Column Break"
   },
   {
-   "fetch_from": "customer.custom_customer_status_",
+   "fetch_from": "customer_id.custom_customer_status_",
    "fieldname": "customer_status",
    "fieldtype": "Data",
    "label": "Customer Status"
@@ -311,20 +304,36 @@
    "reqd": 1
   },
   {
-   "fieldname": "service_item",
+   "fieldname": "column_break_nexw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "customer_id",
    "fieldtype": "Link",
-   "label": "Service Item",
+   "in_standard_filter": 1,
+   "label": "Customer ID",
+   "options": "Customer",
+   "reqd": 1
+  },
+  {
+   "default": "Incometax Filing",
+   "fieldname": "service_name",
+   "fieldtype": "Link",
+   "label": "Service Name",
    "options": "Item",
    "reqd": 1
   },
   {
-   "fieldname": "column_break_nexw",
-   "fieldtype": "Column Break"
+   "fetch_from": "service_name.gst_hsn_code",
+   "fieldname": "hsn_code",
+   "fieldtype": "Data",
+   "label": "HSN Code",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-12-20 10:02:46.304922",
+ "modified": "2023-12-22 16:02:45.733771",
  "modified_by": "Administrator",
  "module": "Lsa",
  "name": "IT Assessee File",

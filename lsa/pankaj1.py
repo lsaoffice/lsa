@@ -541,8 +541,6 @@ def fetch_gstfile_records():
 # IT Assessess Create manual Record
 
 
-# myapp/myapp/doctype/it_assessee_file/it_assessee_file.py
-
 # from __future__ import unicode_literals
 import frappe
 
@@ -562,6 +560,114 @@ def create_it_assessee_manual_record(yearly_report, current_form_name):
     
     
     
-    
+##############################################################################
 
+# In sales order Fetch service from master
+
+
+
+
+@frappe.whitelist()
+def fetch_services(c_id):
+    all_services = frappe.get_all("Customer Chargeable Doctypes")
+    c_services=[]
+    for service in all_services:
+        # print(service["name"])
+        # if service["name"] in ("IT Assessee File","Gstfile"):
+            # print(service["name"])
+        c_services_n= (frappe.get_all(service["name"], filters={'customer_id': c_id},fields=["name","service_name","hsn_code","customer_id","current_recurring_fees"]))
+        c_services+=list(c_services_n)
+            # for c_service in c_services_n:
+            #   pass
+    print(c_services)
     
+    if c_services:
+        # For demonstration purposes, let's just send back a response.
+        data = c_services
+        return data
+    else:
+        return "No data found for the given parameters."
+
+
+
+#############################################################################################
+
+import frappe
+from datetime import datetime
+import calendar
+ 
+ 
+ 
+ 
+def cron():
+    auto_gen_so_for_subscribers()
+    # pass
+    
+        
+ 
+        
+        
+def auto_gen_so_for_subscribers():
+ 
+    subscriptions = frappe.get_all("Customer Subscriptions Plan",
+    filters={"status":"Active"},
+    fields=["name","customer_id","subscription_start_date","action_frequency","notification","whatsapp","email"])
+ 
+    monthly_subscriptions=[i for i in subscriptions if i["action_frequency"]=="Monthly"]
+ 
+    for subscriber in monthly_subscriptions:
+        c_id=subscriber["customer_id"]
+ 
+        current_date = datetime.now().date()
+        last_day = calendar.monthrange(current_date.year, current_date.month)[1]
+        last_day_of_month = datetime(current_date.year, current_date.month, last_day)
+ 
+        s_id=subscriber["name"]
+        subscription_services = frappe.get_all("Subscription Item",
+            filters={"parent":s_id},
+            fields=["services_name","hsn_code","qty","rate"])
+ 
+        items_list=[]
+        qtyy=0
+        amt=0.00
+        for service in subscription_services:
+            items_list+=[
+                    {
+                    "item_code": service["services_name"],
+                    "gst_hsn_code": service["hsn_code"],
+                    "qty": service["qty"],
+                    "rate":service["rate"]
+                    }
+                    ]
+            qtyy+=service["qty"]
+            amt+=service["rate"]
+     
+ 
+        sales_order = frappe.get_doc({"doctype": "Sales Order", "customer": c_id,
+        "transaction_date":current_date,"custom_so_from_date":current_date,
+        "custom_so_to_date":last_day_of_month,"total_qty":qtyy,"total":amt,
+        "items": items_list
+        })
+        sales_order.insert()
+ 
+  
+  
+  
+  ###############################################################################################
+  
+  # Issue to Task Creation
+
+
+@frappe.whitelist()
+def task_with_issue_creation(i_id):
+    issue=frappe.get_last_doc("Issue",filters={"name":i_id})
+    task=frappe.get_doc({"doctype":"Task",
+                      "subject":issue.subject,
+                      "custom_customer_id":issue.customer,
+                      "priority":issue.priority,
+                      "issue":issue.name,
+                    #   "type":issue.issue_type,
+                      })
+    task.insert()
+    print(issue.subject)
+    return  "Task Inserted"

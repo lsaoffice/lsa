@@ -8,7 +8,7 @@
  "engine": "InnoDB",
  "field_order": [
   "basic_information_tab",
-  "cid_no",
+  "customer_id",
   "customer_name",
   "customer_status",
   "column_break_iiqt",
@@ -62,16 +62,7 @@
    "label": "Basic Information"
   },
   {
-   "fieldname": "cid_no",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "CID No",
-   "options": "Customer",
-   "reqd": 1
-  },
-  {
-   "fetch_from": "cid_no.customer_name",
+   "fetch_from": "customer_id.customer_name",
    "fieldname": "customer_name",
    "fieldtype": "Data",
    "label": "Customer Name",
@@ -79,7 +70,7 @@
    "reqd": 1
   },
   {
-   "fetch_from": "cid_no.custom_customer_status_",
+   "fetch_from": "customer_id.custom_customer_status_",
    "fieldname": "customer_status",
    "fieldtype": "Data",
    "label": "Customer Status",
@@ -128,7 +119,6 @@
    "fieldname": "assessee_type",
    "fieldtype": "Data",
    "label": "Assessee type",
-   "options": "Assessee Type",
    "reqd": 1
   },
   {
@@ -321,11 +311,20 @@
    "label": "Notes",
    "no_copy": 1,
    "options": "CRM Note"
+  },
+  {
+   "fieldname": "customer_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Customer ID",
+   "options": "Customer",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-12-20 10:04:02.165018",
+ "modified": "2023-12-22 12:54:55.705056",
  "modified_by": "Administrator",
  "module": "Lsa",
  "name": "Provident Fund File",

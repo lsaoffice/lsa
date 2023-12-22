@@ -133,23 +133,30 @@ app_license = "mit"
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
-#	"all": [
-#		"lsa.tasks.all"
-#	],
-#	"daily": [
-#		"lsa.tasks.daily"
-#	],
-#	"hourly": [
-#		"lsa.tasks.hourly"
-#	],
-#	"weekly": [
-#		"lsa.tasks.weekly"
-#	],
-#	"monthly": [
-#		"lsa.tasks.monthly"
-#	],
-# }
+
+scheduler_events = {
+    "cron":{
+        "* * * * *":
+            [
+            "lsa.pankaj1.cron"
+            ],
+    },
+    # "all": [
+    #   "lsa.tasks.all"
+    # ],
+    # "daily": [
+    #   "lsa.tasks.daily"
+    # ],
+    # "hourly": [
+    #   "lsa.tasks.hourly"
+    # ],
+    # "weekly": [
+    #   "lsa.tasks.weekly"
+    # ],
+    # "monthly": [
+    #   "lsa.tasks.monthly"
+    # ],
+}
 
 # Testing
 # -------

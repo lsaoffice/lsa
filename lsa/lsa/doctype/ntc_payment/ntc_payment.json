@@ -8,8 +8,9 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "customer",
+  "customer_id",
   "customer_name",
+  "customer_status",
   "column_break_mewb",
   "other_person_name",
   "payment_regarding",
@@ -26,13 +27,7 @@
  ],
  "fields": [
   {
-   "fieldname": "customer",
-   "fieldtype": "Link",
-   "label": "Customer",
-   "options": "Customer"
-  },
-  {
-   "fetch_from": "customer.customer_name",
+   "fetch_from": "customer_id.customer_name",
    "fieldname": "customer_name",
    "fieldtype": "Data",
    "label": "Customer Name",
@@ -108,11 +103,23 @@
    "fieldname": "description",
    "fieldtype": "Text Editor",
    "label": "Description"
+  },
+  {
+   "fieldname": "customer_id",
+   "fieldtype": "Link",
+   "label": "Customer ID",
+   "options": "Customer"
+  },
+  {
+   "fetch_from": "customer_id.custom_customer_status_",
+   "fieldname": "customer_status",
+   "fieldtype": "Data",
+   "label": "Customer Status"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-12-04 13:15:51.754360",
+ "modified": "2023-12-22 14:40:01.628675",
  "modified_by": "Administrator",
  "module": "Lsa",
  "name": "NTC Payment",

@@ -8,7 +8,7 @@
  "engine": "InnoDB",
  "field_order": [
   "basic_information_tab",
-  "cid_no",
+  "customer_id",
   "dsc_pwd",
   "dsc_reg_date",
   "dsc_exp_date",
@@ -43,14 +43,6 @@
    "label": "Basic Information"
   },
   {
-   "fieldname": "cid_no",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "CID No",
-   "options": "Customer",
-   "reqd": 1
-  },
-  {
    "fieldname": "dsc_pwd",
    "fieldtype": "Data",
    "label": "DSC Pwd",
@@ -76,11 +68,11 @@
    "read_only": 1
   },
   {
-   "fetch_from": "cid_no.customer_name",
+   "fetch_from": "customer_id.customer_name",
    "fieldname": "customer_name",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Cust Name",
+   "label": "Customer Name",
    "read_only": 1,
    "reqd": 1
   },
@@ -94,9 +86,8 @@
   },
   {
    "fieldname": "assessee_type",
-   "fieldtype": "Link",
+   "fieldtype": "Select",
    "label": "Assessee Type",
-   "options": "Assessee Type",
    "reqd": 1
   },
   {
@@ -110,11 +101,11 @@
    "fieldtype": "Column Break"
   },
   {
-   "fetch_from": "cid_no.custom_customer_status_",
+   "fetch_from": "customer_id.custom_customer_status_",
    "fieldname": "customer_status",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Cust Status",
+   "label": "Customer Status",
    "read_only": 1,
    "reqd": 1
   },
@@ -203,11 +194,19 @@
    "fieldtype": "Table",
    "label": "Notes",
    "options": "CRM Note"
+  },
+  {
+   "fieldname": "customer_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Customer ID",
+   "options": "Customer",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-11-27 11:00:35.346584",
+ "modified": "2023-12-22 14:48:18.711688",
  "modified_by": "Administrator",
  "module": "Lsa",
  "name": "DSC Digital Sign",

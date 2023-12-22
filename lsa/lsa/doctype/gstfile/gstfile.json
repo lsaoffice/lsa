@@ -58,7 +58,10 @@
   "tally_user_name",
   "tally_password",
   "accounts_tab",
-  "current_charges"
+  "service_name",
+  "hsn_code",
+  "column_break_udoe",
+  "current_recurring_fees"
  ],
  "fields": [
   {
@@ -381,8 +384,26 @@
    "label": "Accounts"
   },
   {
+   "default": "GST Filling",
+   "fieldname": "service_name",
+   "fieldtype": "Link",
+   "label": "Service Name",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_udoe",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "service_name.gst_hsn_code",
+   "fieldname": "hsn_code",
+   "fieldtype": "Data",
+   "label": "HSN Code"
+  },
+  {
    "default": "1",
-   "fieldname": "current_charges",
+   "fieldname": "current_recurring_fees",
    "fieldtype": "Currency",
    "label": "Current Recurring Fees",
    "non_negative": 1,
@@ -392,7 +413,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-12-19 10:49:10.828028",
+ "modified": "2023-12-22 16:05:51.218479",
  "modified_by": "Administrator",
  "module": "Lsa",
  "name": "Gstfile",

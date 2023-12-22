@@ -60,6 +60,7 @@
    "fieldtype": "Select",
    "label": "FILING STATUS",
    "options": "PENDING INITIAL CONTACT\nDOCUMENTS REQUESTED\nDOCUMENTS PARTIALLY RECEIVED\nDOCUMENTS FULLY COLLECTED\nREVIEWED AND VERIFIED\nRETURN PREPARED\nSHARED TO CLIENT REVIEW\nFILED\nACK AND VERIFIED\nDOCS SHARED WITH CLIENT",
+   "read_only": 1,
    "reqd": 1
   },
   {
@@ -71,7 +72,7 @@
    "search_index": 1
   },
   {
-   "fetch_from": "it_assessee_file.customer",
+   "fetch_from": "it_assessee_file.customer_id",
    "fieldname": "customer_id",
    "fieldtype": "Link",
    "label": "Customer ID",
@@ -97,7 +98,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-12-20 12:20:03.200747",
+ "modified": "2023-12-22 16:25:55.391430",
  "modified_by": "Administrator",
  "module": "Lsa",
  "name": "IT Assessee Filing Data",

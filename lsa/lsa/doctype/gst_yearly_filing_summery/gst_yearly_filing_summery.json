@@ -16,6 +16,7 @@
   "gstin",
   "gst_executive",
   "cid",
+  "customer_status",
   "gst_type",
   "section_break_dspl",
   "fy_first_month_of_filling",
@@ -63,8 +64,9 @@
   {
    "fetch_from": "gst_file_id.customer_id",
    "fieldname": "cid",
-   "fieldtype": "Data",
-   "label": "CID"
+   "fieldtype": "Link",
+   "label": "CID",
+   "options": "Customer"
   },
   {
    "default": "0",
@@ -129,11 +131,17 @@
    "fieldname": "gstin",
    "fieldtype": "Data",
    "label": "GSTIN"
+  },
+  {
+   "fetch_from": "cid.custom_customer_status_",
+   "fieldname": "customer_status",
+   "fieldtype": "Data",
+   "label": "Customer Status"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-12-19 09:43:42.491461",
+ "modified": "2023-12-21 11:12:58.731032",
  "modified_by": "Administrator",
  "module": "Lsa",
  "name": "Gst Yearly Filing Summery",
