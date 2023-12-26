@@ -575,7 +575,10 @@ def fetch_services(c_id):
         # print(service["name"])
         # if service["name"] in ("IT Assessee File","Gstfile"):
             # print(service["name"])
-        c_services_n= (frappe.get_all(service["name"], filters={'customer_id': c_id},fields=["name","service_name","hsn_code","customer_id","current_recurring_fees"]))
+        c_services_n= (frappe.get_all(
+            service["name"], 
+            filters={'customer_id': c_id},
+            fields=["name","service_name","hsn_code","description","customer_id","current_recurring_fees"]))
         c_services+=list(c_services_n)
             # for c_service in c_services_n:
             #   pass

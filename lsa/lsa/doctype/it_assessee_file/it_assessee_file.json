@@ -56,7 +56,8 @@
   "service_name",
   "hsn_code",
   "column_break_nexw",
-  "current_recurring_fees"
+  "current_recurring_fees",
+  "description"
  ],
  "fields": [
   {
@@ -300,6 +301,7 @@
    "fieldtype": "Currency",
    "label": "Current Recurring Fees",
    "non_negative": 1,
+   "permlevel": 2,
    "precision": "2",
    "reqd": 1
   },
@@ -321,6 +323,7 @@
    "fieldtype": "Link",
    "label": "Service Name",
    "options": "Item",
+   "permlevel": 2,
    "reqd": 1
   },
   {
@@ -328,12 +331,20 @@
    "fieldname": "hsn_code",
    "fieldtype": "Data",
    "label": "HSN Code",
+   "permlevel": 2,
+   "read_only": 1
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Data",
+   "label": "Description",
+   "permlevel": 2,
    "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-12-22 16:02:45.733771",
+ "modified": "2023-12-26 12:28:25.849928",
  "modified_by": "Administrator",
  "module": "Lsa",
  "name": "IT Assessee File",

@@ -19,6 +19,7 @@
   "column_break_mjhd",
   "registration_no",
   "assessee_type",
+  "company_name",
   "section_break_ccxy",
   "pt_allotment_date",
   "filling_starting_date",
@@ -59,7 +60,8 @@
   "service_name",
   "hsn_code",
   "column_break_pcad",
-  "current_recurring_fees"
+  "current_recurring_fees",
+  "description"
  ],
  "fields": [
   {
@@ -327,7 +329,7 @@
   {
    "fieldname": "account_tab",
    "fieldtype": "Tab Break",
-   "label": "Account"
+   "label": "Accounts"
   },
   {
    "default": "PT Filling",
@@ -335,6 +337,7 @@
    "fieldtype": "Link",
    "label": "Service Name",
    "options": "Item",
+   "permlevel": 2,
    "reqd": 1
   },
   {
@@ -347,6 +350,8 @@
    "fieldtype": "Currency",
    "label": "Current Recurring Fees",
    "non_negative": 1,
+   "permlevel": 2,
+   "precision": "2",
    "reqd": 1
   },
   {
@@ -354,12 +359,25 @@
    "fieldname": "hsn_code",
    "fieldtype": "Data",
    "label": "HSN Code",
+   "permlevel": 2,
    "read_only": 1
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Data",
+   "label": "Description",
+   "permlevel": 2,
+   "read_only": 1
+  },
+  {
+   "fieldname": "company_name",
+   "fieldtype": "Data",
+   "label": "Company Name"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-12-22 15:02:52.611903",
+ "modified": "2023-12-26 14:25:18.276533",
  "modified_by": "Administrator",
  "module": "Lsa",
  "name": "Professional Tax File",

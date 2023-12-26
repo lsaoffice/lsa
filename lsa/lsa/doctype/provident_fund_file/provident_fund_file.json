@@ -18,6 +18,7 @@
   "column_break_mjhd",
   "registartion_no",
   "assessee_type",
+  "company_name",
   "section_break_ccxy",
   "pf_allotment_date",
   "filling_starting_date",
@@ -58,7 +59,8 @@
   "service_name",
   "hsn_code",
   "column_break_bllb",
-  "current_recurring_fees"
+  "current_recurring_fees",
+  "description"
  ],
  "fields": [
   {
@@ -329,7 +331,7 @@
   {
    "fieldname": "account_tab",
    "fieldtype": "Tab Break",
-   "label": "Account"
+   "label": "Accounts"
   },
   {
    "default": "OTHER SERVICES",
@@ -337,6 +339,7 @@
    "fieldtype": "Link",
    "label": "Service Name",
    "options": "Item",
+   "permlevel": 2,
    "reqd": 1
   },
   {
@@ -344,22 +347,39 @@
    "fieldname": "current_recurring_fees",
    "fieldtype": "Currency",
    "label": "Current Recurring Fees",
-   "non_negative": 1
+   "non_negative": 1,
+   "permlevel": 2,
+   "precision": "2",
+   "reqd": 1
   },
   {
    "fetch_from": "service_name.gst_hsn_code",
    "fieldname": "hsn_code",
    "fieldtype": "Data",
-   "label": "HSN Code"
+   "label": "HSN Code",
+   "permlevel": 2
   },
   {
    "fieldname": "column_break_bllb",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Data",
+   "label": "Description",
+   "permlevel": 2,
+   "read_only": 1
+  },
+  {
+   "fieldname": "company_name",
+   "fieldtype": "Data",
+   "label": "Company Name",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-12-26 09:50:04.199271",
+ "modified": "2023-12-26 12:32:35.139846",
  "modified_by": "Administrator",
  "module": "Lsa",
  "name": "Provident Fund File",
