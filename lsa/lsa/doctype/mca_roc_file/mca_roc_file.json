@@ -163,7 +163,7 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Company Reg Mob. no.",
-   "length": 12,
+   "length": 13,
    "reqd": 1
   },
   {
@@ -343,7 +343,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-12-22 15:01:41.804404",
+ "modified": "2023-12-26 10:44:21.874517",
  "modified_by": "Administrator",
  "module": "Lsa",
  "name": "MCA ROC File",

@@ -53,7 +53,12 @@
   "address",
   "comments_tab",
   "notes_html",
-  "notes"
+  "notes",
+  "account_tab",
+  "service_name",
+  "hsn_code",
+  "column_break_bllb",
+  "current_recurring_fees"
  ],
  "fields": [
   {
@@ -320,11 +325,41 @@
    "label": "Customer ID",
    "options": "Customer",
    "reqd": 1
+  },
+  {
+   "fieldname": "account_tab",
+   "fieldtype": "Tab Break",
+   "label": "Account"
+  },
+  {
+   "default": "OTHER SERVICES",
+   "fieldname": "service_name",
+   "fieldtype": "Link",
+   "label": "Service Name",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "current_recurring_fees",
+   "fieldtype": "Currency",
+   "label": "Current Recurring Fees",
+   "non_negative": 1
+  },
+  {
+   "fetch_from": "service_name.gst_hsn_code",
+   "fieldname": "hsn_code",
+   "fieldtype": "Data",
+   "label": "HSN Code"
+  },
+  {
+   "fieldname": "column_break_bllb",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-12-22 12:54:55.705056",
+ "modified": "2023-12-26 09:50:04.199271",
  "modified_by": "Administrator",
  "module": "Lsa",
  "name": "Provident Fund File",

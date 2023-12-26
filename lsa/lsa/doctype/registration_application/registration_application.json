@@ -1,0 +1,145 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "LSA-REG-.#####",
+ "creation": "2023-12-25 16:54:34.845334",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "customer",
+  "column_break_bqas",
+  "customer_name",
+  "section_break_yqsg",
+  "registration_type",
+  "application_type",
+  "application_login_date",
+  "entity_name",
+  "primary_applicant_name",
+  "mobile_number",
+  "email_id",
+  "column_break_cljj",
+  "status",
+  "issuance_date",
+  "approved_registration_number",
+  "validity_period"
+ ],
+ "fields": [
+  {
+   "fieldname": "registration_type",
+   "fieldtype": "Select",
+   "label": "Registration Type",
+   "options": "\nGST\nPAN\nMSME\nProfessional Tax\nTrademark\nIEC Import Export Code\nESI\nPF\nFSSAI Food License\nShop and Establishment Act\nMCA Roc - LLP\nMCA Roc - Pvt Ltd\nMca Roc - Opc\nTAN\nPartnership Firm\nStartup India Registration",
+   "reqd": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "\nPending\nDocument Requested\nDocument Collected\nApplication Pre-Scrutiny Done\nApplication Verified and Reviewed\nApplication Submitted\nQuery Raised\nQuery Resubmitted\nRegistration Completed\nApplication Rejected\nShared with Client\nFeedback Collected",
+   "reqd": 1
+  },
+  {
+   "fieldname": "entity_name",
+   "fieldtype": "Data",
+   "label": "Entity Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_cljj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "issuance_date",
+   "fieldtype": "Date",
+   "label": "Issuance Date"
+  },
+  {
+   "fieldname": "approved_registration_number",
+   "fieldtype": "Data",
+   "label": "Approved Registration Number"
+  },
+  {
+   "fieldname": "validity_period",
+   "fieldtype": "Data",
+   "label": "Validity Period"
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Customer",
+   "options": "Customer",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_yqsg",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_bqas",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "customer.customer_name",
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "label": "Customer Name"
+  },
+  {
+   "fieldname": "mobile_number",
+   "fieldtype": "Data",
+   "label": "Mobile Number",
+   "reqd": 1
+  },
+  {
+   "fieldname": "email_id",
+   "fieldtype": "Data",
+   "label": "Email Id"
+  },
+  {
+   "fieldname": "application_login_date",
+   "fieldtype": "Date",
+   "label": "Application Login Date"
+  },
+  {
+   "fieldname": "primary_applicant_name",
+   "fieldtype": "Data",
+   "label": "Primary Applicant Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "application_type",
+   "fieldtype": "Select",
+   "label": "Application Type",
+   "options": "New\nAmendment",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-12-26 11:11:42.295359",
+ "modified_by": "Administrator",
+ "module": "Lsa",
+ "name": "Registration Application",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}
