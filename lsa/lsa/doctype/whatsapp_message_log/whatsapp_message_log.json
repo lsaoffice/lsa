@@ -63,7 +63,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-12-16 11:00:26.196307",
+ "modified": "2024-01-02 13:00:28.150264",
  "modified_by": "Administrator",
  "module": "Lsa",
  "name": "WhatsApp Message Log",
@@ -85,5 +85,6 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "track_changes": 1
 }

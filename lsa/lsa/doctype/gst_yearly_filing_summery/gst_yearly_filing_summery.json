@@ -8,22 +8,25 @@
  "field_order": [
   "gst_yearly_summery_report_id",
   "fy",
-  "tax_paid_amount",
-  "interest_paid_amount",
-  "penalty_paid_amount",
+  "cid",
+  "customer_status",
   "column_break_cibz",
   "gst_file_id",
   "gstin",
   "gst_executive",
-  "cid",
-  "customer_status",
   "gst_type",
   "section_break_dspl",
   "fy_first_month_of_filling",
   "sales_total_taxable",
   "column_break_oplc",
   "fy_last_month_of_filling",
-  "purchase_total_taxable"
+  "purchase_total_taxable",
+  "section_break_xcuc",
+  "tax_paid_amount",
+  "column_break_ucso",
+  "interest_paid_amount",
+  "column_break_xukb",
+  "penalty_paid_amount"
  ],
  "fields": [
   {
@@ -44,14 +47,12 @@
   {
    "fieldname": "fy_first_month_of_filling",
    "fieldtype": "Data",
-   "label": "Fy First Month Of Filling",
-   "read_only": 1
+   "label": "Fy First Month Of Filling"
   },
   {
    "fieldname": "fy_last_month_of_filling",
    "fieldtype": "Data",
-   "label": "Fy Last Month Of Filling",
-   "read_only": 1
+   "label": "Fy Last Month Of Filling"
   },
   {
    "fieldname": "gst_file_id",
@@ -72,33 +73,33 @@
    "default": "0",
    "fieldname": "sales_total_taxable",
    "fieldtype": "Currency",
-   "label": "Sales Total Taxable",
+   "label": "Total Sales Taxable",
    "read_only": 1
   },
   {
    "default": "0",
    "fieldname": "purchase_total_taxable",
    "fieldtype": "Currency",
-   "label": "Purchase Total Taxable",
+   "label": "Total Purchase Taxable",
    "read_only": 1
   },
   {
    "fieldname": "tax_paid_amount",
    "fieldtype": "Currency",
-   "label": "Tax Paid Amount",
+   "label": "Total Tax Paid Amount",
    "read_only": 1
   },
   {
    "default": "0",
    "fieldname": "penalty_paid_amount",
    "fieldtype": "Currency",
-   "label": "Penalty Paid Amount",
+   "label": "Total Penalty Paid Amount",
    "read_only": 1
   },
   {
    "fieldname": "interest_paid_amount",
    "fieldtype": "Currency",
-   "label": "Interest Paid Amount",
+   "label": "Total Interest Paid Amount",
    "read_only": 1
   },
   {
@@ -120,11 +121,10 @@
    "label": "GST Type"
   },
   {
-   "fetch_from": "gst_file_id.gst_executive",
+   "fetch_from": "gst_file_id.executive_name",
    "fieldname": "gst_executive",
-   "fieldtype": "Link",
-   "label": "Gst Executive",
-   "options": "Employee"
+   "fieldtype": "Data",
+   "label": "Gst Executive"
   },
   {
    "fetch_from": "gst_file_id.gst_number",
@@ -137,11 +137,23 @@
    "fieldname": "customer_status",
    "fieldtype": "Data",
    "label": "Customer Status"
+  },
+  {
+   "fieldname": "section_break_xcuc",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_ucso",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_xukb",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-12-21 11:12:58.731032",
+ "modified": "2024-01-05 14:25:09.444500",
  "modified_by": "Administrator",
  "module": "Lsa",
  "name": "Gst Yearly Filing Summery",
@@ -163,5 +175,6 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "track_changes": 1
 }

@@ -17,6 +17,7 @@
   "company_name",
   "company_pan",
   "column_break_mjhd",
+  "enabled",
   "cin",
   "registartion_no",
   "company_type",
@@ -118,7 +119,6 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "CIN",
-   "length": 21,
    "reqd": 1,
    "unique": 1
   },
@@ -194,7 +194,8 @@
    "fieldname": "executive",
    "fieldtype": "Link",
    "label": "Executive",
-   "options": "User"
+   "options": "User",
+   "reqd": 1
   },
   {
    "fieldname": "section_break_toek",
@@ -323,8 +324,7 @@
    "fieldtype": "Link",
    "label": "Service Name",
    "options": "Item",
-   "permlevel": 2,
-   "reqd": 1
+   "permlevel": 2
   },
   {
    "fieldname": "column_break_dfri",
@@ -337,8 +337,7 @@
    "label": "Current Recurring Fees",
    "non_negative": 1,
    "permlevel": 2,
-   "precision": "2",
-   "reqd": 1
+   "precision": "2"
   },
   {
    "fetch_from": "service_name.gst_hsn_code",
@@ -350,15 +349,21 @@
   },
   {
    "fieldname": "description",
-   "fieldtype": "Data",
+   "fieldtype": "Small Text",
    "label": "Description",
    "permlevel": 2,
    "read_only": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enabled"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-12-26 12:28:19.108815",
+ "modified": "2024-01-03 18:48:10.751915",
  "modified_by": "Administrator",
  "module": "Lsa",
  "name": "MCA ROC File",
@@ -380,5 +385,6 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "track_changes": 1
 }

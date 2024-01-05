@@ -457,7 +457,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-12-19 18:05:54.127218",
+ "modified": "2024-01-02 19:36:52.237836",
  "modified_by": "Administrator",
  "module": "Lsa",
  "name": "Business Connection",
@@ -479,5 +479,6 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "track_changes": 1
 }

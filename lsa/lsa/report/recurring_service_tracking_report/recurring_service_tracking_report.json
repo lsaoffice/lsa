@@ -1,0 +1,57 @@
+{
+ "add_total_row": 1,
+ "columns": [],
+ "creation": "2023-12-29 16:36:14.775840",
+ "disabled": 1,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 2,
+ "is_standard": "Yes",
+ "letter_head": "LSA",
+ "letterhead": null,
+ "modified": "2024-01-04 18:17:15.172268",
+ "modified_by": "Administrator",
+ "module": "Lsa",
+ "name": "Recurring Service Tracking Report",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "ref_doctype": "Customer",
+ "report_name": "Recurring Service Tracking Report",
+ "report_type": "Script Report",
+ "roles": [
+  {
+   "role": "Sales User"
+  },
+  {
+   "role": "Sales Manager"
+  },
+  {
+   "role": "Stock User"
+  },
+  {
+   "role": "Sales Master Manager"
+  },
+  {
+   "role": "Accounts Manager"
+  },
+  {
+   "role": "Accounts User"
+  },
+  {
+   "role": "Stock Manager"
+  },
+  {
+   "role": "Employee Self Service"
+  },
+  {
+   "role": "LSA Account Executive"
+  },
+  {
+   "role": "LSA Employee"
+  },
+  {
+   "role": "LSA CEO Admin"
+  }
+ ]
+}

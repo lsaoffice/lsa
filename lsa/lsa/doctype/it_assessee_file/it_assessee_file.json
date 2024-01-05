@@ -23,11 +23,12 @@
   "assessee_name",
   "date_of_birth",
   "executive_name",
-  "father",
+  "executive",
   "column_break_vwrq",
   "registered_mob",
   "alternative_mob",
   "email_id",
+  "father",
   "mother",
   "column_break_obbf",
   "pan",
@@ -118,6 +119,7 @@
   {
    "fieldname": "executive_name",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "IT Executive Name",
    "options": "Employee"
   },
@@ -340,11 +342,19 @@
    "label": "Description",
    "permlevel": 2,
    "read_only": 1
+  },
+  {
+   "fetch_from": ".company_email",
+   "fieldname": "executive",
+   "fieldtype": "Link",
+   "label": "Executive",
+   "options": "User",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-12-26 12:28:25.849928",
+ "modified": "2024-01-03 18:47:33.262844",
  "modified_by": "Administrator",
  "module": "Lsa",
  "name": "IT Assessee File",

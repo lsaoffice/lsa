@@ -42,7 +42,7 @@
    "link_fieldname": "fy"
   }
  ],
- "modified": "2023-12-18 11:49:49.806731",
+ "modified": "2024-01-02 13:00:26.451946",
  "modified_by": "Administrator",
  "module": "Lsa",
  "name": "Gst Yearly Summery Report",
@@ -64,5 +64,6 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "track_changes": 1
 }

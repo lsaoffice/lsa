@@ -1,7 +1,6 @@
 {
  "actions": [],
- "allow_rename": 1,
- "autoname": "format:{gst_filling_report_id}-{####}",
+ "autoname": "format:{fy}-{month}-{gst_type}-{#######}",
  "creation": "2023-12-14 18:03:31.414070",
  "default_view": "Report",
  "doctype": "DocType",
@@ -10,9 +9,14 @@
   "section_break_jiec",
   "cid",
   "gstfile",
+  "company",
+  "customer_status",
+  "mobile_no_gst",
   "column_break_fdja",
   "company_name",
   "gst_type",
+  "gst_yearly_filling_summery_id",
+  "email_gst",
   "section_break_mauk",
   "fy",
   "column_break_bwdw",
@@ -20,25 +24,26 @@
   "column_break_boyo",
   "filing_status",
   "column_break_anjv",
-  "gst_executive",
+  "executive",
   "section_break_abwx",
   "sales_total_taxable",
   "purchase_total_taxable",
   "recorded_by",
-  "column_break_oret",
-  "tax_paid",
-  "tax_paid_amount",
-  "interest_paid_amount",
-  "penalty_paid_amount",
   "column_break_vods",
   "itc_igst",
   "itc_cgst",
   "itc_sgst",
   "itc_cess",
+  "column_break_oret",
+  "tax_paid",
+  "tax_paid_amount",
+  "interest_paid_amount",
+  "penalty_paid_amount",
   "section_break_rsnh",
   "gst_filling_report_id",
-  "amended_from",
-  "gst_yearly_filling_summery_id"
+  "column_break_kogm",
+  "filing_notes",
+  "amended_from"
  ],
  "fields": [
   {
@@ -66,13 +71,14 @@
   {
    "fieldname": "month",
    "fieldtype": "Data",
+   "in_standard_filter": 1,
    "label": "Month",
    "read_only": 1
   },
   {
    "fieldname": "gstfile",
    "fieldtype": "Link",
-   "label": "Company Name",
+   "label": "Gstfile",
    "options": "Gstfile",
    "read_only": 1,
    "reqd": 1
@@ -80,8 +86,9 @@
   {
    "fetch_from": "gstfile.customer_id",
    "fieldname": "cid",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "label": "CID",
+   "options": "Customer",
    "read_only": 1,
    "reqd": 1
   },
@@ -129,11 +136,13 @@
    "label": "Tax Paid Amount"
   },
   {
+   "depends_on": "eval:doc.tax_paid == 'Yes'",
    "fieldname": "penalty_paid_amount",
    "fieldtype": "Currency",
    "label": "Penalty Paid Amount"
   },
   {
+   "depends_on": "eval:doc.tax_paid == 'Yes'",
    "fieldname": "interest_paid_amount",
    "fieldtype": "Currency",
    "label": "Interest Paid Amount"
@@ -157,8 +166,10 @@
   {
    "fetch_from": "gstfile.gst_type",
    "fieldname": "gst_type",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
    "label": "Gst Type",
+   "options": "Gst Type",
    "read_only": 1,
    "reqd": 1
   },
@@ -174,21 +185,17 @@
    "fetch_from": "gst_yearly_filling_summery_id.fy",
    "fieldname": "fy",
    "fieldtype": "Link",
+   "in_standard_filter": 1,
    "label": "FY",
-   "options": "Gst Yearly Summery Report"
+   "options": "Gst Yearly Summery Report",
+   "search_index": 1
   },
   {
    "fieldname": "gst_filling_report_id",
    "fieldtype": "Link",
    "label": "Gst Filling Report Id",
-   "options": "Gst Filing Data Report"
-  },
-  {
-   "fetch_from": "gstfile.gst_executive",
-   "fieldname": "gst_executive",
-   "fieldtype": "Link",
-   "label": "Gst Executive",
-   "options": "Employee"
+   "options": "Gst Filing Data Report",
+   "search_index": 1
   },
   {
    "fieldname": "column_break_bwdw",
@@ -201,15 +208,6 @@
   {
    "fieldname": "section_break_jiec",
    "fieldtype": "Section Break"
-  },
-  {
-   "fetch_from": "gstfile.gst_number",
-   "fieldname": "company_name",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "GSTIN",
-   "read_only": 1,
-   "reqd": 1
   },
   {
    "fieldname": "column_break_fdja",
@@ -226,12 +224,68 @@
   {
    "fieldname": "section_break_mauk",
    "fieldtype": "Section Break"
+  },
+  {
+   "fetch_from": "cid.custom_customer_status_",
+   "fieldname": "customer_status",
+   "fieldtype": "Data",
+   "label": "Customer Status ",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_kogm",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "filing_notes",
+   "fieldtype": "Data",
+   "label": "Filing Notes"
+  },
+  {
+   "fetch_from": "gstfile.mobile",
+   "fieldname": "mobile_no_gst",
+   "fieldtype": "Data",
+   "label": "Mobile No (GST)",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "gstfile.gst_registered_email",
+   "fieldname": "email_gst",
+   "fieldtype": "Data",
+   "label": "Email (GST)",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "gstfile.executive_name",
+   "fieldname": "executive",
+   "fieldtype": "Data",
+   "in_standard_filter": 1,
+   "label": "Executive",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "gstfile.company_name",
+   "fieldname": "company",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Company ",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fetch_from": "gstfile.gst_number",
+   "fieldname": "company_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "GSTIN",
+   "read_only": 1,
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-12-21 09:47:43.854548",
+ "modified": "2024-01-05 09:42:54.739414",
  "modified_by": "Administrator",
  "module": "Lsa",
  "name": "Gst Filling Data",

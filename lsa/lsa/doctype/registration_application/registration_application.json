@@ -22,14 +22,15 @@
   "status",
   "issuance_date",
   "approved_registration_number",
-  "validity_period"
+  "validity_period",
+  "executive"
  ],
  "fields": [
   {
    "fieldname": "registration_type",
    "fieldtype": "Select",
    "label": "Registration Type",
-   "options": "\nGST\nPAN\nMSME\nProfessional Tax\nTrademark\nIEC Import Export Code\nESI\nPF\nFSSAI Food License\nShop and Establishment Act\nMCA Roc - LLP\nMCA Roc - Pvt Ltd\nMca Roc - Opc\nTAN\nPartnership Firm\nStartup India Registration",
+   "options": "\nGST\nPAN\nMSME\nProfessional Tax\nTrademark\nIEC Import Export Code\nESI\nPF\nFSSAI Food License\nShop and Establishment Act\nMCA Roc - LLP\nMCA Roc - Pvt Ltd\nMca Roc - Opc\nTAN\nPartnership Firm\nStartup India Registration\nDSC Digital Signature",
    "reqd": 1
   },
   {
@@ -98,9 +99,11 @@
    "label": "Email Id"
   },
   {
+   "default": "Today",
    "fieldname": "application_login_date",
    "fieldtype": "Date",
-   "label": "Application Login Date"
+   "label": "Application Login Date",
+   "reqd": 1
   },
   {
    "fieldname": "primary_applicant_name",
@@ -114,11 +117,18 @@
    "label": "Application Type",
    "options": "New\nAmendment",
    "reqd": 1
+  },
+  {
+   "fieldname": "executive",
+   "fieldtype": "Link",
+   "label": "Executive",
+   "options": "User",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-12-26 11:11:42.295359",
+ "modified": "2024-01-03 18:47:18.849623",
  "modified_by": "Administrator",
  "module": "Lsa",
  "name": "Registration Application",

@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:{gst_yearly_summery_report}-{month}-{gst_type}",
+ "autoname": "format:{gst_yearly_summery_report}-{month}-{quarterly}-{gst_type}",
  "creation": "2023-12-14 19:04:55.415920",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -44,8 +44,8 @@
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "MONTH",
-   "options": "APR\nMAY\nJUN\nJUL\nAUG\nSEP\nOCT\nNOV\nDEC\nJAN\nFEB\nMAR",
-   "reqd": 1
+   "mandatory_depends_on": "eval:doc.gst_type == 'Regular' || doc.gst_type == 'QRMP'",
+   "options": "\nAPR\nMAY\nJUN\nJUL\nAUG\nSEP\nOCT\nNOV\nDEC\nJAN\nFEB\nMAR"
   },
   {
    "fieldname": "gst_type",
@@ -81,7 +81,7 @@
    "link_fieldname": "gst_filling_report_id"
   }
  ],
- "modified": "2023-12-19 12:20:29.877957",
+ "modified": "2024-01-02 13:00:21.438756",
  "modified_by": "Administrator",
  "module": "Lsa",
  "name": "Gst Filing Data Report",
@@ -104,5 +104,6 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "track_changes": 1
 }

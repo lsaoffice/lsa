@@ -1,0 +1,348 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "creation": "2023-12-27 11:33:00.410520",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "tab_break_cpal",
+  "section_break_uncd",
+  "login_date",
+  "notice_date",
+  "notice_date_refdata",
+  "cid",
+  "customer_firm_name",
+  "customer_status",
+  "registration_number",
+  "assessee_name",
+  "executive_name",
+  "executive",
+  "column_break_enhn",
+  "notices_status",
+  "priority",
+  "notices_type",
+  "financial_year",
+  "demand_amount_rs",
+  "other_charges",
+  "total_value",
+  "section_break_iklo",
+  "notice_description_column",
+  "text_editor_cerg",
+  "other_details_tab",
+  "associate_consultants_section",
+  "associate_partner",
+  "column_break_ieqn",
+  "mobile",
+  "column_break_kufy",
+  "data_dioo",
+  "section_break_tycp",
+  "notice_reason",
+  "column_break_gimm",
+  "retrun_filed_by",
+  "column_break_lfgq",
+  "return_submitted_by",
+  "section_break_hznn",
+  "department_name",
+  "department_address",
+  "column_break_assj",
+  "officer_name",
+  "officer_ph",
+  "officer_email_id_copy",
+  "officer_email_id"
+ ],
+ "fields": [
+  {
+   "fieldname": "tab_break_cpal",
+   "fieldtype": "Tab Break",
+   "label": "Notice Details"
+  },
+  {
+   "fieldname": "section_break_uncd",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "Today",
+   "fetch_from": ".customer_name",
+   "fieldname": "login_date",
+   "fieldtype": "Date",
+   "label": "Login Date "
+  },
+  {
+   "fieldname": "notice_date",
+   "fieldtype": "Date",
+   "label": "Notice Date"
+  },
+  {
+   "fieldname": "notice_date_refdata",
+   "fieldtype": "Data",
+   "label": "Notice Date Ref.Data"
+  },
+  {
+   "fetch_from": "cid.customer_name",
+   "fieldname": "customer_firm_name",
+   "fieldtype": "Data",
+   "label": "Customer Firm Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "cid.custom_customer_status_",
+   "fieldname": "customer_status",
+   "fieldtype": "Data",
+   "label": "Customer Status",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "customer_id.",
+   "fieldname": "registration_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Registration Number (PAN/GSTNO/REG NO)",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "customer.",
+   "fieldname": "assessee_name",
+   "fieldtype": "Data",
+   "label": "ASSESSEE NAME"
+  },
+  {
+   "fetch_from": ".customer_name",
+   "fieldname": "executive_name",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Executive Name",
+   "options": "User"
+  },
+  {
+   "fieldname": "column_break_enhn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": ".customer_name",
+   "fieldname": "notices_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Received\nUnder Review\nAwaiting Client Information\nAwaiting Consultant Review\nResponse Drafted\nResponse Submitted\nAmended Notice Received\nAppeal Filed\nOn Hold\nResolved\nClosed\nEscalated\nDisputed",
+   "reqd": 1
+  },
+  {
+   "fieldname": "priority",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Priority",
+   "options": "\nHigh\nMedium\nLow",
+   "reqd": 1
+  },
+  {
+   "fetch_from": ".customer_name",
+   "fieldname": "notices_type",
+   "fieldtype": "Select",
+   "label": "Notices Type",
+   "options": "\nINCOME TAX\nGST\nTDS\nVAT\nROC\nPT",
+   "reqd": 1
+  },
+  {
+   "fetch_from": ".customer_name",
+   "fieldname": "financial_year",
+   "fieldtype": "Link",
+   "label": "Financial Year",
+   "options": "FY",
+   "reqd": 1
+  },
+  {
+   "bold": 1,
+   "default": "1",
+   "fetch_from": "customer_id.customer_name",
+   "fieldname": "demand_amount_rs",
+   "fieldtype": "Currency",
+   "label": "Demand Amount Rs",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "bold": 1,
+   "default": "0",
+   "fetch_from": "customer_id.customer_name",
+   "fieldname": "other_charges",
+   "fieldtype": "Currency",
+   "label": "Interest and Penalty",
+   "non_negative": 1
+  },
+  {
+   "bold": 1,
+   "default": "0",
+   "fetch_from": "customer_id.customer_name",
+   "fieldname": "total_value",
+   "fieldtype": "Currency",
+   "label": "Total Value",
+   "non_negative": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_iklo",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "notice_description_column",
+   "fieldtype": "Column Break",
+   "label": "Notice Description"
+  },
+  {
+   "fieldname": "text_editor_cerg",
+   "fieldtype": "Text Editor"
+  },
+  {
+   "fieldname": "other_details_tab",
+   "fieldtype": "Tab Break",
+   "label": "Other Details"
+  },
+  {
+   "fieldname": "associate_consultants_section",
+   "fieldtype": "Section Break",
+   "label": "Associate Consultants"
+  },
+  {
+   "fieldname": "associate_partner",
+   "fieldtype": "Link",
+   "label": "Associate Partner",
+   "options": "Associate Partner"
+  },
+  {
+   "fieldname": "column_break_ieqn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "associate_partner.mobile_number",
+   "fieldname": "mobile",
+   "fieldtype": "Data",
+   "label": "Mobile"
+  },
+  {
+   "fieldname": "column_break_kufy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "associate_partner.email",
+   "fieldname": "data_dioo",
+   "fieldtype": "Data",
+   "label": "Email"
+  },
+  {
+   "fieldname": "section_break_tycp",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "notice_reason",
+   "fieldtype": "Select",
+   "label": "Notice Reason",
+   "options": "\nDue to Client Side Error\nDue to Clerical Error"
+  },
+  {
+   "fieldname": "column_break_gimm",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "retrun_filed_by",
+   "fieldtype": "Select",
+   "label": "Retrun Filed By",
+   "options": "\nOur Team\nOthers"
+  },
+  {
+   "fieldname": "column_break_lfgq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "return_submitted_by",
+   "fieldtype": "Data",
+   "label": "Return Submitted By"
+  },
+  {
+   "fieldname": "section_break_hznn",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fetch_from": ".customer_name",
+   "fieldname": "department_name",
+   "fieldtype": "Data",
+   "label": "Department Name"
+  },
+  {
+   "fetch_from": ".customer_name",
+   "fieldname": "department_address",
+   "fieldtype": "Small Text",
+   "label": "Department Address"
+  },
+  {
+   "fieldname": "column_break_assj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": ".customer_name",
+   "fieldname": "officer_name",
+   "fieldtype": "Data",
+   "label": "Officer Name"
+  },
+  {
+   "fetch_from": ".customer_name",
+   "fieldname": "officer_ph",
+   "fieldtype": "Data",
+   "label": "Officer Mob. No."
+  },
+  {
+   "fetch_from": ".customer_name",
+   "fieldname": "officer_email_id_copy",
+   "fieldtype": "Data",
+   "label": "Department Ph No."
+  },
+  {
+   "fetch_from": ".customer_name",
+   "fieldname": "officer_email_id",
+   "fieldtype": "Data",
+   "label": "Officer Email Id"
+  },
+  {
+   "fieldname": "cid",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Customer ID",
+   "options": "Customer"
+  },
+  {
+   "fetch_from": ".email",
+   "fieldname": "executive",
+   "fieldtype": "Link",
+   "label": "Executive",
+   "options": "User",
+   "reqd": 1
+  }
+ ],
+ "links": [],
+ "modified": "2024-01-03 18:47:06.014791",
+ "modified_by": "Administrator",
+ "module": "Lsa",
+ "name": "Client Notices",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

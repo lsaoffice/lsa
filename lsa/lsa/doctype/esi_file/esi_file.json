@@ -16,6 +16,7 @@
   "assessee_name",
   "pan_of_assessee",
   "column_break_mjhd",
+  "enabled",
   "registartion_no",
   "assessee_type",
   "company_name",
@@ -373,11 +374,17 @@
    "fieldtype": "Data",
    "label": "Company Name",
    "reqd": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enabled"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-12-26 12:32:30.471395",
+ "modified": "2024-01-02 13:00:20.226379",
  "modified_by": "Administrator",
  "module": "Lsa",
  "name": "ESI File",
@@ -398,5 +405,6 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "track_changes": 1
 }

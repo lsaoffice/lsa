@@ -29,7 +29,7 @@
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2023-12-01 10:10:23.192353",
+ "modified": "2024-01-02 13:00:28.620903",
  "modified_by": "Administrator",
  "module": "Lsa",
  "name": "Ai Sensy Api",
@@ -48,5 +48,6 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "track_changes": 1
 }

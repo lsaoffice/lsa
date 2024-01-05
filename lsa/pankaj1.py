@@ -577,7 +577,7 @@ def fetch_services(c_id):
             # print(service["name"])
         c_services_n= (frappe.get_all(
             service["name"], 
-            filters={'customer_id': c_id},
+            filters={'customer_id': c_id,"enabled":1},
             fields=["name","service_name","hsn_code","description","customer_id","current_recurring_fees"]))
         c_services+=list(c_services_n)
             # for c_service in c_services_n:
@@ -663,14 +663,149 @@ def auto_gen_so_for_subscribers():
 
 @frappe.whitelist()
 def task_with_issue_creation(i_id):
-    issue=frappe.get_last_doc("Issue",filters={"name":i_id})
-    task=frappe.get_doc({"doctype":"Task",
-                      "subject":issue.subject,
-                      "custom_customer_id":issue.customer,
-                      "priority":issue.priority,
-                      "issue":issue.name,
-                    #   "type":issue.issue_type,
-                      })
+    issue = frappe.get_last_doc("Issue", filters={"name": i_id})
+
+    if not issue:
+        return f"Issue {i_id} not found"
+
+    issue_task = frappe.get_all("Task", filters={"issue": i_id})
+
+    if issue_task:
+        return f"Task already created for Issue {i_id}"
+
+    task = frappe.get_doc({
+        "doctype": "Task",
+        "subject": issue.subject,
+        "custom_customer_id": issue.customer,
+        "priority": issue.priority,
+        "issue": issue.name,
+        "project": "PROJ-0019",
+        "description": issue.description,
+        "custom_task_type": issue.issue_type,
+    })
+
     task.insert()
+
     print(issue.subject)
-    return  "Task Inserted"
+
+    return f"New Task created for Issue {i_id}"
+    
+    
+    
+###############################################################################################
+  
+# Aisensy integration for Sales Order Without Payment Link
+
+@frappe.whitelist(allow_guest=True)
+def aisensy_sales_order_wo_link(docname,customer_id, customer,from_date,to_date,total,new_mobile,advance_paid):
+    try:
+        amount_pending=float(total) - float(advance_paid)
+        company_account_details="Template Awaited"
+        # frappe.msgprint(from_date)
+        # pass
+        ai_sensy_api = frappe.get_doc('Ai Sensy Api')
+
+        application_url = ai_sensy_api.application_url
+        ai_sensy_url = ai_sensy_api.ai_sensy_url
+        ai_sensy_api1 = ai_sensy_api.ai_sensy_api
+        # Check if Sales Order exists
+        if not frappe.get_value('Sales Order', docname):
+            frappe.msgprint(_("Sales Order {0} not found.").format(docname))
+            return
+
+        # Fetch the Sales Order document
+        # sales_invoice = frappe.get_doc('Sales Order', docname)
+        # erpnext_url = application_url
+
+        # Replace the following URL with the actual AI Sensy API endpoint
+        sensy_api_url = ai_sensy_url
+
+        sales_order_url = frappe.utils.get_url(
+            f"/api/method/frappe.utils.print_format.download_pdf?doctype=Sales%20Order&name={docname}&format=Sales%20Order%20Format&no_letterhead=0&letterhead=LSA&settings=%7B%7D&_lang=en"
+        )
+
+        # Example payload to send to the AI Sensy API
+        payload = {
+            "apiKey": ai_sensy_api1,  # Replace with your actual API key
+            "campaignName": "lsa_saleorder_invoice",
+            "destination": new_mobile,
+            "userName": customer,
+            "templateParams": [
+                customer,
+                from_date,
+                to_date,
+                # format_date(from_date, "dd-mmm-yyyy"),  # Format from_date
+                # format_date(to_date, "dd-mmm-yyyy"),
+                total,
+                advance_paid,
+                amount_pending,
+                company_account_details,
+            ],
+            "media": {
+                "url": sales_order_url,
+                # "url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+                "filename": docname
+            }
+        }
+
+        # Make a POST request to the AI Sensy API
+        response = requests.post(sensy_api_url, json=payload)
+
+        # Check if the request was successful (status code 200)
+        if response.status_code == 200:
+            # Log the API response for reference
+            frappe.logger().info(f"AI Sensy response: {response.text}")
+
+            # You can update the Sales Invoice or perform other actions based on the API response
+            # sales_invoice.custom_field = response.json().get('result')
+            # sales_invoice.save()
+
+            frappe.msgprint(_("WhatsApp Message Sent successfully : {0}").format(response.text))
+            whatsapp_message_log = frappe.new_doc('WhatsApp Message Log')
+            whatsapp_message_log.sales_order = docname
+            whatsapp_message_log.customer = customer_id
+            whatsapp_message_log.sender = frappe.session.user  # Add the sender information
+            whatsapp_message_log.send_date = frappe.utils.now_datetime()
+            # whatsapp_message_log.from_date = from_date
+            # whatsapp_message_log.to_date = to_date
+            whatsapp_message_log.total_amount = total
+            whatsapp_message_log.mobile_no = new_mobile
+            whatsapp_message_log.razorpay_payment_link = "Without Link"
+            whatsapp_message_log.insert(ignore_permissions=True)
+        else:
+            # Log the error and provide feedback to the user
+            frappe.logger().error(f"Sensy API Error: {response.text}")
+            frappe.msgprint(_("WhatsApp message failed to send!. Please try again Later."))
+
+    except requests.exceptions.RequestException as e:
+        # Log the exception and provide feedback to the user
+        print(e)
+        frappe.logger().error(f"Network error: {e}")
+        frappe.msgprint(_("An error occurred while WhatsApp Message. Please try again Later.",e))
+
+    except Exception as e:
+        # Log the exception and provide feedback to the user
+        print(e)
+        frappe.logger().error(f"Custom Button Script Error: {e}")
+        frappe.msgprint(_("An error occurred while WhatsApp Message. Please try again Later.",e))
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+

@@ -21,7 +21,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-12-19 12:22:48.822818",
+ "modified": "2024-01-02 13:00:25.972244",
  "modified_by": "Administrator",
  "module": "Lsa",
  "name": "Customer Chargeable Doctypes",
@@ -43,5 +43,6 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "track_changes": 1
 }

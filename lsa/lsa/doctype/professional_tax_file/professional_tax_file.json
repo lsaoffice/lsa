@@ -370,14 +370,16 @@
    "read_only": 1
   },
   {
+   "fetch_from": ".customer_name",
    "fieldname": "company_name",
    "fieldtype": "Data",
-   "label": "Company Name"
+   "label": "Company Name",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-12-26 14:25:18.276533",
+ "modified": "2024-01-02 13:00:23.415125",
  "modified_by": "Administrator",
  "module": "Lsa",
  "name": "Professional Tax File",
@@ -399,5 +401,6 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "track_changes": 1
 }

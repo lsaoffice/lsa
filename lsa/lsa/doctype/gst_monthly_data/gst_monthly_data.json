@@ -30,7 +30,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-11-27 10:58:42.536625",
+ "modified": "2024-01-02 13:00:28.843657",
  "modified_by": "Administrator",
  "module": "Lsa",
  "name": "Gst Monthly Data",
@@ -51,5 +51,6 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "track_changes": 1
 }

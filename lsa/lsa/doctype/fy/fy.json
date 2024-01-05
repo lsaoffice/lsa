@@ -33,7 +33,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-12-19 09:40:16.929805",
+ "modified": "2024-01-02 13:00:27.931424",
  "modified_by": "Administrator",
  "module": "Lsa",
  "name": "FY",
@@ -58,5 +58,6 @@
  "sort_field": "fy",
  "sort_order": "DESC",
  "states": [],
- "title_field": "fy"
+ "title_field": "fy",
+ "track_changes": 1
 }

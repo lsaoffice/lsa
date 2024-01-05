@@ -183,7 +183,8 @@
    "fieldname": "executive",
    "fieldtype": "Link",
    "label": "Executive",
-   "options": "User"
+   "options": "User",
+   "reqd": 1
   },
   {
    "fieldname": "section_break_gkfb",
@@ -379,7 +380,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-12-26 12:32:41.771812",
+ "modified": "2024-01-03 18:48:44.715583",
  "modified_by": "Administrator",
  "module": "Lsa",
  "name": "TDS File",
@@ -403,5 +404,6 @@
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
- "title_field": "deductor_name"
+ "title_field": "deductor_name",
+ "track_changes": 1
 }
