@@ -3,6 +3,7 @@
  "allow_rename": 1,
  "autoname": "field:ay",
  "creation": "2023-12-18 15:57:18.736083",
+ "default_view": "Report",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
@@ -44,7 +45,7 @@
    "link_fieldname": "ay"
   }
  ],
- "modified": "2024-01-02 13:00:26.194403",
+ "modified": "2024-01-12 09:46:47.701049",
  "modified_by": "Administrator",
  "module": "Lsa",
  "name": "IT Assessee File Yearly Report",

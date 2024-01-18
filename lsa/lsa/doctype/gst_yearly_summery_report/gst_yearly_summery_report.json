@@ -7,7 +7,8 @@
  "engine": "InnoDB",
  "field_order": [
   "fy",
-  "amended_from"
+  "amended_from",
+  "step_2_count"
  ],
  "fields": [
   {
@@ -26,6 +27,14 @@
    "print_hide": 1,
    "read_only": 1,
    "search_index": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "step_2_count",
+   "fieldtype": "Int",
+   "label": "(Step 2) Count",
+   "non_negative": 1,
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
@@ -42,7 +51,7 @@
    "link_fieldname": "fy"
   }
  ],
- "modified": "2024-01-02 13:00:26.451946",
+ "modified": "2024-01-17 13:03:36.232688",
  "modified_by": "Administrator",
  "module": "Lsa",
  "name": "Gst Yearly Summery Report",

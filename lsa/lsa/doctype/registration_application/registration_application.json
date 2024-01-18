@@ -4,6 +4,7 @@
  "allow_rename": 1,
  "autoname": "LSA-REG-.#####",
  "creation": "2023-12-25 16:54:34.845334",
+ "default_view": "Report",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
@@ -14,13 +15,15 @@
   "registration_type",
   "application_type",
   "application_login_date",
+  "column_break_omok",
   "entity_name",
   "primary_applicant_name",
   "mobile_number",
-  "email_id",
   "column_break_cljj",
   "status",
   "issuance_date",
+  "email_id",
+  "column_break_cnlz",
   "approved_registration_number",
   "validity_period",
   "executive"
@@ -37,7 +40,7 @@
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "Status",
-   "options": "\nPending\nDocument Requested\nDocument Collected\nApplication Pre-Scrutiny Done\nApplication Verified and Reviewed\nApplication Submitted\nQuery Raised\nQuery Resubmitted\nRegistration Completed\nApplication Rejected\nShared with Client\nFeedback Collected",
+   "options": "\nPending\nDocument Requested\nDocument Collected\nApplication Pre-Scrutiny Done\nApplication Verified and Reviewed\nApplication Submitted\nQuery Raised\nQuery Resubmitted\nRegistration Completed\nApplication Rejected\nShared with Client\nFeedback Collected\nCancelled From Client Side",
    "reqd": 1
   },
   {
@@ -124,11 +127,19 @@
    "label": "Executive",
    "options": "User",
    "reqd": 1
+  },
+  {
+   "fieldname": "column_break_omok",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_cnlz",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-01-03 18:47:18.849623",
+ "modified": "2024-01-14 20:18:16.786592",
  "modified_by": "Administrator",
  "module": "Lsa",
  "name": "Registration Application",

@@ -4,7 +4,7 @@
  "allow_rename": 1,
  "autoname": "field:pan",
  "creation": "2023-10-06 21:27:20.389852",
- "default_view": "List",
+ "default_view": "Report",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
@@ -56,9 +56,11 @@
   "accounts_tab",
   "service_name",
   "hsn_code",
+  "description",
   "column_break_nexw",
   "current_recurring_fees",
-  "description"
+  "frequency",
+  "annual_fees"
  ],
  "fields": [
   {
@@ -117,11 +119,11 @@
    "label": "Date Of Birth"
   },
   {
+   "fetch_if_empty": 1,
    "fieldname": "executive_name",
-   "fieldtype": "Link",
+   "fieldtype": "Data",
    "hidden": 1,
-   "label": "IT Executive Name",
-   "options": "Employee"
+   "label": "IT Executive Name"
   },
   {
    "fieldname": "father",
@@ -305,6 +307,8 @@
    "non_negative": 1,
    "permlevel": 2,
    "precision": "2",
+   "print_hide": 1,
+   "report_hide": 1,
    "reqd": 1
   },
   {
@@ -326,7 +330,8 @@
    "label": "Service Name",
    "options": "Item",
    "permlevel": 2,
-   "reqd": 1
+   "print_hide": 1,
+   "report_hide": 1
   },
   {
    "fetch_from": "service_name.gst_hsn_code",
@@ -334,27 +339,51 @@
    "fieldtype": "Data",
    "label": "HSN Code",
    "permlevel": 2,
-   "read_only": 1
+   "print_hide": 1,
+   "read_only": 1,
+   "report_hide": 1
   },
   {
    "fieldname": "description",
    "fieldtype": "Data",
    "label": "Description",
    "permlevel": 2,
-   "read_only": 1
+   "print_hide": 1,
+   "read_only": 1,
+   "report_hide": 1
   },
   {
    "fetch_from": ".company_email",
    "fieldname": "executive",
    "fieldtype": "Link",
    "label": "Executive",
-   "options": "User",
-   "reqd": 1
+   "options": "User"
+  },
+  {
+   "default": "Y",
+   "fieldname": "frequency",
+   "fieldtype": "Select",
+   "label": "Frequency",
+   "options": "M\nQ\nH\nY",
+   "permlevel": 2,
+   "print_hide": 1,
+   "report_hide": 1
+  },
+  {
+   "fieldname": "annual_fees",
+   "fieldtype": "Currency",
+   "label": "Annual Fees",
+   "non_negative": 1,
+   "permlevel": 2,
+   "precision": "2",
+   "print_hide": 1,
+   "read_only": 1,
+   "report_hide": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-01-03 18:47:33.262844",
+ "modified": "2024-01-17 12:07:00.216087",
  "modified_by": "Administrator",
  "module": "Lsa",
  "name": "IT Assessee File",

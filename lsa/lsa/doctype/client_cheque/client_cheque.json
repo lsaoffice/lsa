@@ -1,0 +1,200 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-01-12 09:52:59.849939",
+ "default_view": "Report",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_uixl",
+  "customer_id",
+  "client_bank",
+  "column_break_txrf",
+  "customer_name",
+  "cheque_no",
+  "column_break_dnix",
+  "firm_name",
+  "recorded_by",
+  "section_break_ykga",
+  "received_date",
+  "cheque_date",
+  "column_break_ozxt",
+  "fees",
+  "tax",
+  "others",
+  "column_break_zxid",
+  "cheque_serial_no",
+  "cheque_status",
+  "column_break_hfhe",
+  "regarding",
+  "total_amt",
+  "section_break_jkpc",
+  "description"
+ ],
+ "fields": [
+  {
+   "fieldname": "received_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Received Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "cheque_date",
+   "fieldtype": "Date",
+   "label": "Cheque Date"
+  },
+  {
+   "fieldname": "fees",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Fees",
+   "non_negative": 1,
+   "precision": "2",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_zxid",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "cheque_serial_no",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Cheque Serial No",
+   "reqd": 1
+  },
+  {
+   "fieldname": "tax",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Tax",
+   "non_negative": 1,
+   "precision": "2",
+   "reqd": 1
+  },
+  {
+   "fieldname": "others",
+   "fieldtype": "Currency",
+   "label": "Others",
+   "non_negative": 1,
+   "precision": "2",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_hfhe",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "regarding",
+   "fieldtype": "Select",
+   "label": "Regarding",
+   "options": "\nFees\nTax\nBoth\nOther",
+   "reqd": 1
+  },
+  {
+   "fieldname": "cheque_status",
+   "fieldtype": "Select",
+   "label": "Cheque Status",
+   "reqd": 1
+  },
+  {
+   "fieldname": "total_amt",
+   "fieldtype": "Currency",
+   "label": "Total Amt",
+   "non_negative": 1,
+   "precision": "2",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_uixl",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "customer_id",
+   "fieldtype": "Link",
+   "label": "Customer ID",
+   "options": "Customer",
+   "reqd": 1
+  },
+  {
+   "fieldname": "client_bank",
+   "fieldtype": "Data",
+   "label": "Client Bank",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_txrf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": ".customer_name",
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "label": "Customer Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "cheque_no",
+   "fieldtype": "Data",
+   "label": "Cheque No",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_jkpc",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "column_break_dnix",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "firm_name",
+   "fieldtype": "Data",
+   "label": "Firm Name"
+  },
+  {
+   "fieldname": "recorded_by",
+   "fieldtype": "Link",
+   "label": "Recorded By",
+   "options": "User"
+  },
+  {
+   "fieldname": "section_break_ykga",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_ozxt",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-01-14 21:19:05.697133",
+ "modified_by": "Administrator",
+ "module": "Lsa",
+ "name": "Client Cheque",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

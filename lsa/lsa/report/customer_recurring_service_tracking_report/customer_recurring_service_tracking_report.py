@@ -45,6 +45,11 @@ def execute(filters=None):
         servic_doc = {"label": str(service.doctype_name)[:-4] + " Amount", "fieldname": service.name + " amount", "fieldtype": "Currency", "width": 100, "height": 100}
         columns.append(servic_doc)
 
+        if service.doctype_name=="Gstfile":
+            # Add column for service amount
+            servic_doc = {"label": "GST Type", "fieldname": "gst_type", "fieldtype": "Data", "width": 100, "height": 100}
+            columns.append(servic_doc)
+
         # Add column for service customer details
         servic_doc = {"label": str(service.doctype_name)[:-4] + " Customer", "fieldname": service.name + " customer", "fieldtype": "Text Editor", "width": 250, "height": 100}
         columns.append(servic_doc)
@@ -102,25 +107,41 @@ def get_data(services, filters):
         # Iterate through each service doctype
         for service in services:
             # Get services for the customer
-            c_service = frappe.get_all(
-                service.doctype_name,
-                fields=["description", "current_recurring_fees"], 
-                filters={"customer_id": i.name, "enabled": 1}
-                )
+            if service.doctype_name=="Gstfile":
+                c_service = frappe.get_all(
+                                        service.doctype_name,
+                                        fields=["description", "current_recurring_fees","annual_fees","frequency","gst_type"], 
+                                        filters={"customer_id": i.name, "enabled": 1}
+                                        )
+            else:
+                c_service = frappe.get_all(
+                                        service.doctype_name,
+                                        fields=["description", "current_recurring_fees","annual_fees","frequency"], 
+                                        filters={"customer_id": i.name, "enabled": 1}
+                                        )
+
             description_value = ""
             each_service_amount = 0.00
+            gst_type_gstfile = []
             # Iterate through each service record
             for j in c_service:
                 description_list = j.description.split("-")
                 if len(description_list) == 2:
-                    description_value += f"{description_list[0]}-({description_list[1]}) (Rs {j.current_recurring_fees}), "
+                    description_value += f"{description_list[0]}-({description_list[1]})-{j.frequency}-(Rs {j.current_recurring_fees}), "
                 else:
-                    description_value += f"{description_list[0]}-(Rs {j.current_recurring_fees}), "
+                    description_value += f"{description_list[0]}-{j.frequency}-(Rs {j.current_recurring_fees}), "
+                if service.doctype_name=="Gstfile":
+                    gst_type_gstfile.append(j.gst_type)
                 service_count += 1
-                each_service_amount += j.current_recurring_fees
-                service_amount += j.current_recurring_fees
+                each_service_amount += j.annual_fees
+                service_amount += j.annual_fees
             
-            # Set description value for service customer
+            
+            if service.doctype_name=="Gstfile":
+                    gst_type_gstfile=", ".join(gst_type_gstfile)
+                    data_row["gst_type"] = gst_type_gstfile
+
+            # Set description value for service customer        
             data_row[service.name + " customer"] = description_value
             data_row[service.name + " count"] = len(c_service)
             data_row[service.name + " amount"] = each_service_amount
@@ -151,4 +172,6 @@ def get_data(services, filters):
             data = [d1 for d1 in data if d1["status"] == status_filter]
 
     return data
+
+
 

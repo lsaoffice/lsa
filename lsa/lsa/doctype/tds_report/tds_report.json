@@ -3,6 +3,7 @@
  "allow_rename": 1,
  "autoname": "format:{fy}-{qtr}",
  "creation": "2023-12-17 17:07:42.802545",
+ "default_view": "Report",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
@@ -52,7 +53,7 @@
    "link_fieldname": "tds_report"
   }
  ],
- "modified": "2024-01-02 13:00:19.588244",
+ "modified": "2024-01-12 09:49:01.226576",
  "modified_by": "Administrator",
  "module": "Lsa",
  "name": "TDS REPORT",

@@ -3,6 +3,7 @@
  "allow_rename": 1,
  "autoname": "format:{tds_report}-{####}",
  "creation": "2023-12-17 16:28:36.253390",
+ "default_view": "Report",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
@@ -140,7 +141,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-01-02 13:00:27.665234",
+ "modified": "2024-01-12 09:51:14.505016",
  "modified_by": "Administrator",
  "module": "Lsa",
  "name": "TDS QTRLY FILING",

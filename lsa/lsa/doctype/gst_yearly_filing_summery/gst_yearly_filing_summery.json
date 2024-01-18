@@ -3,6 +3,7 @@
  "allow_rename": 1,
  "autoname": "format:GST-{fy}-{gst_file_id}",
  "creation": "2023-12-14 16:21:05.043679",
+ "default_view": "Report",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
@@ -10,11 +11,14 @@
   "fy",
   "cid",
   "customer_status",
+  "created_manually",
   "column_break_cibz",
   "gst_file_id",
+  "company",
   "gstin",
   "gst_executive",
   "gst_type",
+  "gstfile_enabled",
   "section_break_dspl",
   "fy_first_month_of_filling",
   "sales_total_taxable",
@@ -26,7 +30,18 @@
   "column_break_ucso",
   "interest_paid_amount",
   "column_break_xukb",
-  "penalty_paid_amount"
+  "penalty_paid_amount",
+  "pt_tax_payment_tab",
+  "pt_amount",
+  "pt_payment_status",
+  "pt_user_name",
+  "pt_password",
+  "column_break_bigm",
+  "pt_tax_received_date",
+  "pt_tax_payment_date",
+  "ctd_reference_number",
+  "section_break_gjjb",
+  "pt_important_notes"
  ],
  "fields": [
   {
@@ -58,7 +73,7 @@
    "fieldname": "gst_file_id",
    "fieldtype": "Link",
    "in_list_view": 1,
-   "label": "Company Name",
+   "label": "Gstfile",
    "options": "Gstfile",
    "reqd": 1
   },
@@ -118,13 +133,15 @@
    "fetch_from": "gst_file_id.gst_type",
    "fieldname": "gst_type",
    "fieldtype": "Data",
+   "in_standard_filter": 1,
    "label": "GST Type"
   },
   {
    "fetch_from": "gst_file_id.executive_name",
    "fieldname": "gst_executive",
    "fieldtype": "Data",
-   "label": "Gst Executive"
+   "in_standard_filter": 1,
+   "label": "Executive"
   },
   {
    "fetch_from": "gst_file_id.gst_number",
@@ -149,11 +166,91 @@
   {
    "fieldname": "column_break_xukb",
    "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "created_manually",
+   "fieldtype": "Check",
+   "label": " Created Manually",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fetch_from": "gst_file_id.enabled",
+   "fieldname": "gstfile_enabled",
+   "fieldtype": "Check",
+   "label": "Gstfile Enabled",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "gst_file_id.customer_name",
+   "fieldname": "company",
+   "fieldtype": "Data",
+   "label": "Company",
+   "read_only": 1
+  },
+  {
+   "fieldname": "pt_tax_payment_tab",
+   "fieldtype": "Tab Break",
+   "label": "PT Tax Payment"
+  },
+  {
+   "fieldname": "pt_amount",
+   "fieldtype": "Currency",
+   "label": "PT Amount"
+  },
+  {
+   "fieldname": "pt_payment_status",
+   "fieldtype": "Select",
+   "label": "PT Payment Status",
+   "options": "Not Received\nReceived\nTax Paid\nNTC"
+  },
+  {
+   "fetch_from": "gst_file_id.pt_user_name",
+   "fieldname": "pt_user_name",
+   "fieldtype": "Data",
+   "label": "PT User Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "gst_file_id.pt_password",
+   "fieldname": "pt_password",
+   "fieldtype": "Data",
+   "label": "PT Password",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_bigm",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "pt_tax_received_date",
+   "fieldtype": "Date",
+   "label": "PT Tax Received Date"
+  },
+  {
+   "fieldname": "pt_tax_payment_date",
+   "fieldtype": "Date",
+   "label": "PT Tax Payment Date"
+  },
+  {
+   "fieldname": "ctd_reference_number",
+   "fieldtype": "Data",
+   "label": "CTD Reference Number"
+  },
+  {
+   "fieldname": "section_break_gjjb",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "pt_important_notes",
+   "fieldtype": "Small Text",
+   "label": "PT Important Notes"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-01-05 14:25:09.444500",
+ "modified": "2024-01-12 17:37:27.491250",
  "modified_by": "Administrator",
  "module": "Lsa",
  "name": "Gst Yearly Filing Summery",
@@ -169,6 +266,17 @@
    "read": 1,
    "report": 1,
    "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "LSA GST Ops Manager",
    "share": 1,
    "write": 1
   }

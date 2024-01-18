@@ -45,3 +45,11 @@ class GstFilingDataReport(Document):
 
         except Exception as e:
             frappe.msgprint(f"An error occurred: {e}")
+
+@frappe.whitelist()
+def get_gst_filing_data_report(gst_type,fy):
+    gst_filing_data_reports=frappe.get_all("Gst Filing Data Report",
+                                           filters={"gst_yearly_summery_report":fy,"gst_type":gst_type},
+                                           fields=["name"])
+    gst_filing_data_reports=[i.name for i in gst_filing_data_reports]
+    return gst_filing_data_reports

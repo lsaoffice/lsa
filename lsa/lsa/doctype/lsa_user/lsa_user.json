@@ -3,6 +3,7 @@
  "allow_events_in_timeline": 1,
  "allow_import": 1,
  "allow_rename": 1,
+ "autoname": "field:email",
  "creation": "2024-01-02 11:37:48.404990",
  "default_view": "List",
  "doctype": "DocType",
@@ -22,16 +23,8 @@
   "date_of_birth",
   "mobile_no",
   "password",
-  "roles_section",
-  "advance_health_crm",
-  "advance_health_accounts",
-  "column_break_vwlz",
-  "advance_health_admin",
-  "advance_health_counceller",
-  "column_break_awnr",
-  "advance_health_front_desk",
-  "advance_health_digital_team",
-  "amended_from"
+  "section_break_xkbi",
+  "lsa_roles"
  ],
  "fields": [
   {
@@ -44,7 +37,7 @@
    "fieldtype": "Link",
    "label": "Amended From",
    "no_copy": 1,
-   "options": "Advance Health User",
+   "options": "LSA User",
    "print_hide": 1,
    "read_only": 1,
    "search_index": 1
@@ -128,80 +121,36 @@
    "reqd": 1
   },
   {
-   "fieldname": "roles_section",
-   "fieldtype": "Section Break",
-   "label": "Roles"
-  },
-  {
-   "allow_on_submit": 1,
-   "default": "0",
-   "fieldname": "advance_health_crm",
-   "fieldtype": "Check",
-   "label": "Advance Health CRM"
-  },
-  {
-   "allow_on_submit": 1,
-   "default": "0",
-   "fieldname": "advance_health_accounts",
-   "fieldtype": "Check",
-   "label": "Advance Health Accounts"
-  },
-  {
-   "fieldname": "column_break_vwlz",
-   "fieldtype": "Column Break"
-  },
-  {
-   "allow_on_submit": 1,
-   "default": "0",
-   "fieldname": "advance_health_admin",
-   "fieldtype": "Check",
-   "label": "Advance Health Admin"
-  },
-  {
-   "allow_on_submit": 1,
-   "default": "0",
-   "fieldname": "advance_health_counceller",
-   "fieldtype": "Check",
-   "label": "Advance Health Counceller"
-  },
-  {
-   "fieldname": "column_break_awnr",
-   "fieldtype": "Column Break"
-  },
-  {
-   "allow_on_submit": 1,
-   "default": "0",
-   "fieldname": "advance_health_front_desk",
-   "fieldtype": "Check",
-   "label": "Advance Health Front Desk"
-  },
-  {
-   "allow_on_submit": 1,
-   "default": "0",
-   "fieldname": "advance_health_digital_team",
-   "fieldtype": "Check",
-   "label": "Advance Health Digital Team"
-  },
-  {
    "fieldname": "amended_from",
    "fieldtype": "Link",
    "label": "Amended From",
    "no_copy": 1,
-   "options": "Advance Health User",
+   "options": "LSA User",
    "print_hide": 1,
    "read_only": 1,
    "search_index": 1
+  },
+  {
+   "fieldname": "section_break_xkbi",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "lsa_roles",
+   "fieldtype": "HTML",
+   "label": "LSA Roles"
   }
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2024-01-02 11:37:48.404990",
+ "modified": "2024-01-09 17:14:58.541486",
  "modified_by": "Administrator",
  "module": "Lsa",
  "name": "LSA User",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {
+   "cancel": 1,
    "create": 1,
    "delete": 1,
    "email": 1,
@@ -211,6 +160,7 @@
    "report": 1,
    "role": "System Manager",
    "share": 1,
+   "submit": 1,
    "write": 1
   }
  ],

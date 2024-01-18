@@ -3,7 +3,7 @@
  "allow_import": 1,
  "autoname": "field:tan_no",
  "creation": "2023-11-24 16:54:47.387767",
- "default_view": "List",
+ "default_view": "Report",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
@@ -59,9 +59,11 @@
   "account_tab",
   "service_name",
   "hsn_code",
+  "description",
   "column_break_oldr",
   "current_recurring_fees",
-  "description"
+  "frequency",
+  "annual_fees"
  ],
  "fields": [
   {
@@ -347,7 +349,8 @@
    "label": "Service Name",
    "options": "Item",
    "permlevel": 2,
-   "reqd": 1
+   "print_hide": 1,
+   "report_hide": 1
   },
   {
    "fieldname": "column_break_oldr",
@@ -361,6 +364,8 @@
    "non_negative": 1,
    "permlevel": 2,
    "precision": "2",
+   "print_hide": 1,
+   "report_hide": 1,
    "reqd": 1
   },
   {
@@ -368,19 +373,43 @@
    "fieldname": "hsn_code",
    "fieldtype": "Data",
    "label": "HSN Code",
-   "permlevel": 2
+   "permlevel": 2,
+   "print_hide": 1,
+   "report_hide": 1
   },
   {
    "fieldname": "description",
    "fieldtype": "Data",
    "label": "Description",
    "permlevel": 2,
-   "read_only": 1
+   "print_hide": 1,
+   "read_only": 1,
+   "report_hide": 1
+  },
+  {
+   "fieldname": "frequency",
+   "fieldtype": "Select",
+   "label": "Frequency",
+   "options": "M\nQ\nH\nY",
+   "permlevel": 2,
+   "print_hide": 1,
+   "report_hide": 1
+  },
+  {
+   "fieldname": "annual_fees",
+   "fieldtype": "Currency",
+   "label": "Annual Fees",
+   "non_negative": 1,
+   "permlevel": 2,
+   "precision": "2",
+   "print_hide": 1,
+   "read_only": 1,
+   "report_hide": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-01-03 18:48:44.715583",
+ "modified": "2024-01-17 12:02:29.862417",
  "modified_by": "Administrator",
  "module": "Lsa",
  "name": "TDS File",

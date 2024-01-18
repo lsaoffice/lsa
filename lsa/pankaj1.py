@@ -9,7 +9,7 @@ def fetch_sales_orders(cid):
     # Fetch sales orders based on the customer ID and docstatus
     sales_orders = frappe.get_list(
         'Sales Order',
-        filters={'customer': cid, 'docstatus': ('in', ['0', '1'])},
+        filters={'customer': cid, 'status': ('in', ["Draft", "On Hold", "To Deliver and Bill", "To Bill", "To Deliver"])},
         fields=['name', 'transaction_date', 'advance_paid', 'grand_total', 'customer', 'customer_name', 'status']
     )
 
@@ -795,15 +795,8 @@ def aisensy_sales_order_wo_link(docname,customer_id, customer,from_date,to_date,
     
     
     
-    
 
-    
-    
-    
-    
-    
-    
-    
+
     
     
     

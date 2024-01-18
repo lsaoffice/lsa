@@ -4,7 +4,7 @@
  "allow_rename": 1,
  "autoname": "field:gst_number",
  "creation": "2023-10-05 11:43:32.041050",
- "default_view": "List",
+ "default_view": "Report",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
@@ -53,8 +53,10 @@
   "gst_password",
   "eway_user_name",
   "eway_password",
-  "tin_no",
+  "pt_user_name",
+  "pt_password",
   "vat_and_tally_column",
+  "tin_no",
   "vat_user_name",
   "vat_password",
   "tally_user_name",
@@ -62,9 +64,11 @@
   "accounts_tab",
   "service_name",
   "hsn_code",
+  "description",
   "column_break_udoe",
   "current_recurring_fees",
-  "description"
+  "frequency",
+  "annual_fees"
  ],
  "fields": [
   {
@@ -90,6 +94,7 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Customer Name",
+   "permlevel": 1,
    "read_only": 1,
    "reqd": 1
   },
@@ -99,16 +104,16 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Customer Status",
+   "permlevel": 1,
    "read_only": 1,
    "reqd": 1
   },
   {
+   "fetch_if_empty": 1,
    "fieldname": "gst_executive",
-   "fieldtype": "Link",
+   "fieldtype": "Data",
    "hidden": 1,
-   "in_standard_filter": 1,
    "label": "Gst Executive",
-   "options": "Employee",
    "permlevel": 1
   },
   {
@@ -155,6 +160,7 @@
    "fieldname": "gst_type",
    "fieldtype": "Select",
    "in_filter": 1,
+   "in_standard_filter": 1,
    "label": "Gst Type",
    "options": "\nRegular\nComposition\nQRMP",
    "permlevel": 1,
@@ -325,8 +331,7 @@
   {
    "fieldname": "eway_password",
    "fieldtype": "Data",
-   "label": "Eway Password",
-   "permlevel": 1
+   "label": "Eway Password"
   },
   {
    "fieldname": "tin_no",
@@ -393,7 +398,8 @@
    "label": "Service Name",
    "options": "Item",
    "permlevel": 2,
-   "reqd": 1
+   "print_hide": 1,
+   "report_hide": 1
   },
   {
    "fieldname": "column_break_udoe",
@@ -404,7 +410,9 @@
    "fieldname": "hsn_code",
    "fieldtype": "Data",
    "label": "HSN Code",
-   "permlevel": 2
+   "permlevel": 2,
+   "print_hide": 1,
+   "report_hide": 1
   },
   {
    "default": "1",
@@ -414,6 +422,8 @@
    "non_negative": 1,
    "permlevel": 2,
    "precision": "2",
+   "print_hide": 1,
+   "report_hide": 1,
    "reqd": 1
   },
   {
@@ -421,7 +431,9 @@
    "fieldtype": "Data",
    "label": "Description",
    "permlevel": 2,
-   "read_only": 1
+   "print_hide": 1,
+   "read_only": 1,
+   "report_hide": 1
   },
   {
    "fetch_from": ".company_email",
@@ -437,14 +449,44 @@
    "fetch_from": "executive.full_name",
    "fieldname": "executive_name",
    "fieldtype": "Data",
-   "hidden": 1,
    "label": "Executive Name",
+   "permlevel": 1,
    "read_only": 1
+  },
+  {
+   "fieldname": "frequency",
+   "fieldtype": "Select",
+   "label": "Frequency",
+   "options": "M\nQ\nH\nY",
+   "permlevel": 2,
+   "print_hide": 1,
+   "report_hide": 1
+  },
+  {
+   "fieldname": "annual_fees",
+   "fieldtype": "Currency",
+   "label": "Annual Fees",
+   "non_negative": 1,
+   "permlevel": 2,
+   "precision": "2",
+   "print_hide": 1,
+   "read_only": 1,
+   "report_hide": 1
+  },
+  {
+   "fieldname": "pt_user_name",
+   "fieldtype": "Data",
+   "label": "PT User Name"
+  },
+  {
+   "fieldname": "pt_password",
+   "fieldtype": "Data",
+   "label": "PT Password"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-01-05 09:41:46.892924",
+ "modified": "2024-01-17 12:04:04.098820",
  "modified_by": "Administrator",
  "module": "Lsa",
  "name": "Gstfile",

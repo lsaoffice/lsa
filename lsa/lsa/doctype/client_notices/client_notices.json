@@ -3,7 +3,7 @@
  "allow_import": 1,
  "allow_rename": 1,
  "creation": "2023-12-27 11:33:00.410520",
- "default_view": "List",
+ "default_view": "Report",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
@@ -322,7 +322,7 @@
   }
  ],
  "links": [],
- "modified": "2024-01-03 18:47:06.014791",
+ "modified": "2024-01-12 09:50:41.271550",
  "modified_by": "Administrator",
  "module": "Lsa",
  "name": "Client Notices",

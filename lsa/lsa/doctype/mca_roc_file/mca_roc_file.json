@@ -4,7 +4,7 @@
  "allow_rename": 1,
  "autoname": "field:cin",
  "creation": "2023-11-24 16:50:09.608557",
- "default_view": "List",
+ "default_view": "Report",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
@@ -57,9 +57,11 @@
   "account_tab",
   "service_name",
   "hsn_code",
+  "description",
   "column_break_dfri",
   "current_recurring_fees",
-  "description"
+  "frequency",
+  "annual_fees"
  ],
  "fields": [
   {
@@ -324,7 +326,9 @@
    "fieldtype": "Link",
    "label": "Service Name",
    "options": "Item",
-   "permlevel": 2
+   "permlevel": 2,
+   "print_hide": 1,
+   "report_hide": 1
   },
   {
    "fieldname": "column_break_dfri",
@@ -337,7 +341,10 @@
    "label": "Current Recurring Fees",
    "non_negative": 1,
    "permlevel": 2,
-   "precision": "2"
+   "precision": "2",
+   "print_hide": 1,
+   "report_hide": 1,
+   "reqd": 1
   },
   {
    "fetch_from": "service_name.gst_hsn_code",
@@ -345,25 +352,49 @@
    "fieldtype": "Data",
    "label": "HSN Code",
    "permlevel": 2,
-   "read_only": 1
+   "print_hide": 1,
+   "read_only": 1,
+   "report_hide": 1
   },
   {
    "fieldname": "description",
-   "fieldtype": "Small Text",
+   "fieldtype": "Data",
    "label": "Description",
    "permlevel": 2,
-   "read_only": 1
+   "print_hide": 1,
+   "read_only": 1,
+   "report_hide": 1
   },
   {
    "default": "1",
    "fieldname": "enabled",
    "fieldtype": "Check",
    "label": "Enabled"
+  },
+  {
+   "fieldname": "frequency",
+   "fieldtype": "Select",
+   "label": "Frequency",
+   "options": "M\nQ\nH\nY",
+   "permlevel": 2,
+   "print_hide": 1,
+   "report_hide": 1
+  },
+  {
+   "fieldname": "annual_fees",
+   "fieldtype": "Currency",
+   "label": "Annual Fees",
+   "non_negative": 1,
+   "permlevel": 2,
+   "precision": "2",
+   "print_hide": 1,
+   "read_only": 1,
+   "report_hide": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-01-03 18:48:10.751915",
+ "modified": "2024-01-17 12:09:57.755380",
  "modified_by": "Administrator",
  "module": "Lsa",
  "name": "MCA ROC File",

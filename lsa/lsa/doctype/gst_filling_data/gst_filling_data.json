@@ -12,11 +12,15 @@
   "company",
   "customer_status",
   "mobile_no_gst",
+  "email_gst",
   "column_break_fdja",
   "company_name",
   "gst_type",
   "gst_yearly_filling_summery_id",
-  "email_gst",
+  "gst_user_name",
+  "gst_password",
+  "proprietor_name",
+  "gstfile_enabled",
   "section_break_mauk",
   "fy",
   "column_break_bwdw",
@@ -29,6 +33,7 @@
   "sales_total_taxable",
   "purchase_total_taxable",
   "recorded_by",
+  "created_manually",
   "column_break_vods",
   "itc_igst",
   "itc_cgst",
@@ -66,7 +71,8 @@
    "fieldtype": "Link",
    "in_standard_filter": 1,
    "label": "GST Yearly Filling Summary ID",
-   "options": "Gst Yearly Filing Summery"
+   "options": "Gst Yearly Filing Summery",
+   "reqd": 1
   },
   {
    "fieldname": "month",
@@ -280,12 +286,47 @@
    "label": "GSTIN",
    "read_only": 1,
    "reqd": 1
+  },
+  {
+   "fetch_from": "gstfile.gst_user_name",
+   "fieldname": "gst_user_name",
+   "fieldtype": "Data",
+   "label": "GST User Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "gstfile.gst_password",
+   "fieldname": "gst_password",
+   "fieldtype": "Data",
+   "label": "GST Password",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "gstfile.proprietor_name",
+   "fieldname": "proprietor_name",
+   "fieldtype": "Data",
+   "label": "Proprietor Name",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "created_manually",
+   "fieldtype": "Check",
+   "label": "Created Manually",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fetch_from": "gstfile.enabled",
+   "fieldname": "gstfile_enabled",
+   "fieldtype": "Check",
+   "label": "Gstfile Enabled"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-01-05 09:42:54.739414",
+ "modified": "2024-01-11 17:55:35.592918",
  "modified_by": "Administrator",
  "module": "Lsa",
  "name": "Gst Filling Data",
@@ -294,7 +335,6 @@
  "permissions": [
   {
    "create": 1,
-   "delete": 1,
    "email": 1,
    "export": 1,
    "print": 1,
@@ -302,7 +342,17 @@
    "report": 1,
    "role": "System Manager",
    "share": 1,
-   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "LSA GST Ops Manager",
+   "share": 1,
    "write": 1
   }
  ],
