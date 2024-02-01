@@ -6,7 +6,16 @@ from frappe.model.document import Document
 
 
 class GstYearlyFilingSummery(Document):
-	pass
+	def before_insert(self):
+		all_yearly_doc = frappe.get_all('Gst Yearly Filing Summery',filters={"fy":self.fy})
+		doc=frappe.get_doc("Gst Yearly Summery Report",self.fy)
+		doc.step_2_count=len(all_yearly_doc)+1
+		doc.save()
+	def on_trash(self):
+		all_yearly_doc = frappe.get_all('Gst Yearly Filing Summery',filters={"fy":self.fy})
+		doc=frappe.get_doc("Gst Yearly Summery Report",self.fy)
+		doc.step_2_count=len(all_yearly_doc)-1
+		doc.save()
 
 	
 @frappe.whitelist()
@@ -59,5 +68,6 @@ def checking_user_authentication(user_email):
 
 
 	
+
 
 

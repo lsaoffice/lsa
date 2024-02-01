@@ -31,6 +31,7 @@
   "column_break_nklw",
   "reg_add",
   "executive",
+  "executive_name",
   "section_break_deyf",
   "other_info",
   "crediential_details_tab",
@@ -398,11 +399,18 @@
    "permlevel": 2,
    "precision": "2",
    "read_only": 1
+  },
+  {
+   "fetch_from": "executive.full_name",
+   "fieldname": "executive_name",
+   "fieldtype": "Data",
+   "label": "Executive Name",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-01-16 15:55:24.734984",
+ "modified": "2024-01-23 17:05:00.225985",
  "modified_by": "Administrator",
  "module": "Lsa",
  "name": "ESI File",

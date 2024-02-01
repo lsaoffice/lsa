@@ -7,6 +7,7 @@
  "engine": "InnoDB",
  "field_order": [
   "section_break_jiec",
+  "submitted",
   "cid",
   "gstfile",
   "company",
@@ -165,6 +166,7 @@
    "default": "Pending",
    "fieldname": "filing_status",
    "fieldtype": "Select",
+   "in_standard_filter": 1,
    "label": "Filing Status",
    "options": "Pending\nData Collected\nData Finalized\nTax Calculation Done\nTax Informed to Client\nGSTR-1 or IFF Prepared and Filed\nGSTR-2A/2B or 4A/4B Reco done\nTax Payment Processed\nGSTR-3B / CMP08 Prepared and Filed\nFiled Summery Shared With Client",
    "read_only": 1
@@ -321,12 +323,19 @@
    "fieldname": "gstfile_enabled",
    "fieldtype": "Check",
    "label": "Gstfile Enabled"
+  },
+  {
+   "default": "0",
+   "fieldname": "submitted",
+   "fieldtype": "Check",
+   "label": "Submitted",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-01-11 17:55:35.592918",
+ "modified": "2024-01-19 18:15:32.453733",
  "modified_by": "Administrator",
  "module": "Lsa",
  "name": "Gst Filling Data",

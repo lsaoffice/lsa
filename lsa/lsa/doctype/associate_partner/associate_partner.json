@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "LSA-PARTNER-.####",
+ "autoname": "PROF-PART-.#####",
  "creation": "2023-12-27 07:58:14.138264",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -38,7 +38,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-01-02 13:00:22.921099",
+ "modified": "2024-01-26 16:45:51.325632",
  "modified_by": "Administrator",
  "module": "Lsa",
  "name": "Associate Partner",

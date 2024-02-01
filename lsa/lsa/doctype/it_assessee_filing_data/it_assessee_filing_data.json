@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
  "autoname": "format:{ay}-{it_assessee_file}-{###}",
  "creation": "2023-12-18 15:57:57.865804",
@@ -14,11 +15,13 @@
   "pan",
   "assessee_full_name",
   "filing_status",
+  "executive",
   "column_break_prnj",
   "customer_id",
   "customer_name",
   "customer_status",
-  "created_manually"
+  "created_manually",
+  "filing_notes"
  ],
  "fields": [
   {
@@ -47,23 +50,20 @@
    "fetch_from": "it_assessee_file.pan",
    "fieldname": "pan",
    "fieldtype": "Data",
-   "label": "PAN",
-   "reqd": 1
+   "label": "PAN"
   },
   {
    "fetch_from": "it_assessee_file.assessee_name",
    "fieldname": "assessee_full_name",
    "fieldtype": "Data",
-   "label": "Assessee Full Name",
-   "reqd": 1
+   "label": "Assessee Full Name"
   },
   {
    "fieldname": "filing_status",
    "fieldtype": "Select",
    "label": "FILING STATUS",
    "options": "PENDING INITIAL CONTACT\nDOCUMENTS REQUESTED\nDOCUMENTS PARTIALLY RECEIVED\nDOCUMENTS FULLY COLLECTED\nREVIEWED AND VERIFIED\nRETURN PREPARED\nSHARED TO CLIENT REVIEW\nFILED\nACK AND VERIFIED\nDOCS SHARED WITH CLIENT",
-   "read_only": 1,
-   "reqd": 1
+   "read_only": 1
   },
   {
    "fieldname": "ay",
@@ -102,12 +102,23 @@
    "fieldtype": "Check",
    "label": "Created Manually",
    "read_only": 1
+  },
+  {
+   "fetch_from": "it_assessee_file.executive_name",
+   "fieldname": "executive",
+   "fieldtype": "Data",
+   "label": "Executive"
+  },
+  {
+   "fieldname": "filing_notes",
+   "fieldtype": "Small Text",
+   "label": "Filing Notes"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-01-17 15:54:25.474651",
+ "modified": "2024-01-23 09:47:13.007214",
  "modified_by": "Administrator",
  "module": "Lsa",
  "name": "IT Assessee Filing Data",

@@ -3,26 +3,26 @@
 
 frappe.query_reports["Customer Service Tracking Report"] = {
     "filters": [
-        {
-            fieldname: "service_user",
-            label: __("Customer with/without Services"),
-            fieldtype: "Select",
-            options:["All","Customers with Services","Customers without Services"],
-            default: "All",
-        },      
-        {
-            fieldname: "status",
-            label: __("Status"),
-            fieldtype: "Select",
-            options:["All","ACTIVE","HOLD"],
-            default: "All",
-        },      
-        {
-            fieldname: "enabled",
-            label: __("Enabled"),
-            fieldtype: "Select",
-            options:["All","Yes","No"],
-            default: "All",
-        },      
+		{
+			fieldname: "service_user",
+			label: __("Customer with/without Services"),
+			fieldtype: "Select",
+			options:["All","Customers with Services","Customers without Services"],
+			default: "Customers with Services",
+		},		
+		{
+			fieldname: "status",
+			label: __("Status"),
+			fieldtype: "Select",
+			options:["All","ACTIVE","HOLD"],
+			default: "All",
+		},		
+		{
+			fieldname: "enabled",
+			label: __("Enabled"),
+			fieldtype: "Select",
+			options:["All","Yes","No"],
+			default: "Yes",
+		},		   
     ]
 };

@@ -22,7 +22,11 @@ def execute(filters=None):
         {"label": "Service Count", "fieldname": "service_count", "fieldtype": "Int", "width": 100, "height": 100},
         {"label": "Service Amount", "fieldname": "service_amount", "fieldtype": "Currency", "width": 100, "height": 100},
         {"label": "SO Count", "fieldname": "so_count", "fieldtype": "Int", "width": 100, "height": 100},
-        {"label": "SO Status", "fieldname": "custom_customer_saleorder_status", "fieldtype": "Data", "width": 100, "height": 100},
+
+        {"label": "Customer Payment Agree", "fieldname": "custom_customer_tags", "fieldtype": "Data", "width": 100, "height": 100},
+        {"label": "Customer Behaviour", "fieldname": "custom_customer_behaviour_", "fieldtype": "Data", "width": 100, "height": 100},
+        {"label": "Customer Status", "fieldname": "custom_customer_status_", "fieldtype": "Data", "width": 100, "height": 100},
+
         {"label": "Pending Amount", "fieldname": "pending_amount", "fieldtype": "Currency", "width": 100, "height": 100},
     ]
     
@@ -69,7 +73,7 @@ def get_data(services, filters):
     enabled_filter = filters.get("enabled")
 
     # Get all customers
-    customers = frappe.get_all("Customer", fields=["name", "customer_name", "mobile_no", "disabled","custom_customer_saleorder_status", "custom_customer_status_"])
+    customers = frappe.get_all("Customer", fields=["name", "customer_name", "mobile_no", "disabled","custom_customer_status_","custom_customer_tags","custom_customer_behaviour_","custom_customer_status_"])
     
     # Iterate through each customer
     for i in customers:
@@ -78,7 +82,9 @@ def get_data(services, filters):
             "customer_name": i.customer_name,
             "mobile number": i.mobile_no,
             "status": i.custom_customer_status_,
-            "custom_customer_saleorder_status":i.custom_customer_saleorder_status,
+            "custom_customer_tags":i.custom_customer_tags,
+            "custom_customer_behaviour_":i.custom_customer_behaviour_,
+            "custom_customer_status_":i.custom_customer_status_,
         }
 
         # Set enable status based on 'disabled' field
@@ -172,6 +178,7 @@ def get_data(services, filters):
             data = [d1 for d1 in data if d1["status"] == status_filter]
 
     return data
+
 
 
 

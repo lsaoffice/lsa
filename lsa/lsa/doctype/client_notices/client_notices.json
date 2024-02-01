@@ -34,9 +34,14 @@
   "other_details_tab",
   "associate_consultants_section",
   "associate_partner",
+  "column_break_bqkk",
+  "part_name",
   "column_break_ieqn",
   "mobile",
   "column_break_kufy",
+  "alt_mobile",
+  "section_break_clho",
+  "office_ph_no",
   "data_dioo",
   "section_break_tycp",
   "notice_reason",
@@ -319,10 +324,36 @@
    "label": "Executive",
    "options": "User",
    "reqd": 1
+  },
+  {
+   "fieldname": "column_break_bqkk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "associate_partner.name1",
+   "fieldname": "part_name",
+   "fieldtype": "Data",
+   "label": "Part Name"
+  },
+  {
+   "fetch_from": "associate_partner.mobile_number",
+   "fieldname": "alt_mobile",
+   "fieldtype": "Data",
+   "label": "Alt Mobile"
+  },
+  {
+   "fieldname": "section_break_clho",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fetch_from": "associate_partner.mobile_number",
+   "fieldname": "office_ph_no",
+   "fieldtype": "Data",
+   "label": "office Ph no."
   }
  ],
  "links": [],
- "modified": "2024-01-12 09:50:41.271550",
+ "modified": "2024-01-23 19:06:55.116185",
  "modified_by": "Administrator",
  "module": "Lsa",
  "name": "Client Notices",

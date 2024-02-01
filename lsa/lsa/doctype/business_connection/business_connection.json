@@ -9,62 +9,64 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "salutation",
-  "first_name",
-  "gender",
-  "gives_connection",
-  "ask_desired_connection",
-  "column_break_jtbo",
-  "business_name",
-  "business_category",
-  "designation",
-  "connection_for",
-  "reference_by_name",
-  "column_break_iyrw",
-  "login_date",
-  "meeting_platform",
-  "first_meeting_at",
-  "first_meeting_at_date",
-  "lead_owner",
   "contact_info_section",
+  "salutation",
+  "login_date",
+  "first_name",
+  "column_break_qize",
   "mob_no_1",
   "mob_no_2",
+  "business_name",
   "column_break_whnv",
   "email_id",
   "office_email_id",
-  "website",
   "column_break_wazs",
   "phone_no",
   "phone_ext",
+  "website",
   "connection_type_section",
   "opportunity_type",
   "connection_type",
   "connector_response_type",
+  "current_status",
+  "designation",
   "column_break_ezrn",
   "priority",
-  "current_status",
+  "business_category",
+  "meeting_platform",
+  "first_meeting_at_date",
+  "connection_for",
   "column_break_hucf",
+  "first_meeting_at",
   "other_details_of_connection",
+  "gives_connection",
+  "lead_owner",
+  "column_break_buzh",
+  "reference_by_name",
+  "gender",
+  "ask_desired_connection",
+  "product_line",
   "section_break_znvk",
   "personal_details_column",
   "years_in_this_business",
   "annual_revenue",
-  "industry",
   "market_segment",
-  "no_of_employees",
   "column_break_sdmy",
+  "industry",
   "territory",
-  "10_good_customers",
+  "no_of_employees",
   "business_details_column",
-  "product_line",
-  "image",
+  "10_good_customers",
+  "address_tab",
   "address_and_contacts_section",
   "city",
   "state",
-  "column_break_vcyo",
   "country",
-  "column_break_osqs",
+  "column_break_vcyo",
   "address",
+  "column_break_osqs",
+  "image",
+  "visiting_card_back",
   "other_tab",
   "personal_info_column",
   "other_details",
@@ -110,15 +112,10 @@
    "label": "Ask Desired Connection"
   },
   {
-   "fieldname": "column_break_jtbo",
-   "fieldtype": "Column Break"
-  },
-  {
    "fieldname": "business_name",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Business Name",
-   "reqd": 1
+   "label": "Business Name"
   },
   {
    "fieldname": "business_category",
@@ -145,10 +142,6 @@
    "fieldname": "reference_by_name",
    "fieldtype": "Data",
    "label": "Reference By Name"
-  },
-  {
-   "fieldname": "column_break_iyrw",
-   "fieldtype": "Column Break"
   },
   {
    "default": "Today",
@@ -356,7 +349,7 @@
   {
    "fieldname": "image",
    "fieldtype": "Attach Image",
-   "label": "Visiting Card"
+   "label": "Visiting Card Front"
   },
   {
    "collapsible": 1,
@@ -368,8 +361,7 @@
    "fieldname": "city",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "City",
-   "reqd": 1
+   "label": "City"
   },
   {
    "fieldname": "state",
@@ -453,11 +445,29 @@
    "label": "Admin Notes",
    "options": "CRM Note",
    "permlevel": 4
+  },
+  {
+   "fieldname": "column_break_qize",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_buzh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "address_tab",
+   "fieldtype": "Tab Break",
+   "label": "Address"
+  },
+  {
+   "fieldname": "visiting_card_back",
+   "fieldtype": "Attach Image",
+   "label": "Visiting Card Back"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-01-12 09:50:24.624011",
+ "modified": "2024-01-26 19:09:13.112777",
  "modified_by": "Administrator",
  "module": "Lsa",
  "name": "Business Connection",

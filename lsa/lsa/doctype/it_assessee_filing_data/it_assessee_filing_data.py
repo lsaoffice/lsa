@@ -3,10 +3,15 @@
 
 import frappe
 from frappe.model.document import Document
+from frappe import _
 
 
 class ITAssesseeFilingData(Document):
-	pass
+	def before_insert(doc):
+          existing_doc = frappe.get_all(doc.doctype, filters={ 'ay': doc.ay,"it_assessee_file":doc.it_assessee_file })
+          if existing_doc:
+              frappe.throw(("The IT Assessee Filing Data  already exists."))
+
 
 
 @frappe.whitelist()
@@ -30,3 +35,4 @@ def create_it_assessee_filing_data(yearly_report, current_form_name):
     except Exception as e:
         frappe.msgprint(f"Error: {e}")
         return False
+
